@@ -1,3 +1,26 @@
+
+<script>
+import logo from "@/assets/img/MonyMontySinFondo3.png";
+
+export default {
+  name: "Navegacion-1",
+  data() {
+    return {
+      logo,
+    };
+  },
+  methods: {
+    irAMonymonty() {
+      window.location.href = 'http://localhost:5174/login';
+    },
+    irADocumentacion() {
+      this.$router.push('/Document');
+    }
+  }
+
+
+};
+</script>
 <template>
   <nav>
     <!-- logo -->
@@ -7,90 +30,94 @@
       </router-link>
     </div>
 
-    <!-- menu -->
-    <div>
+    <!-- menú --> 
+    <div class="menu-links">
       <a href="#inicio">Inicio</a>
+      <span class="separator">|</span>
       <a href="#productos">Productos</a>
+      <span class="separator">|</span>
       <a href="#nosotros">Nosotros</a>
+      <span class="separator">|</span>
       <a href="#clientes">Clientes</a>
+      <span class="separator">|</span>
       <a href="#contacto">Contacto</a>
+      <span class="separator">|</span>
+      <a href="" @click.prevent="irADocumentacion">Documentacion</a>
     </div>
+
 
     <!-- inicio de sesión -->
 
     <div>
-      <router-link to="/login">Inicio de Sesión</router-link>
+      <button class="loginMonyMonty" @click="irAMonymonty">Inicio de Sesión</button>
     </div>
   </nav>
 </template>
 
-<script>
-import logo from "@/assets/img/MonyMontySinFondo3.png";
-
-export default {
-  name: "Navegacion de la web",
-  data() {
-    return {
-      logo,
-    };
-  },
-};
-</script>
 
 <style>
 /* Estilos para tu aplicación */
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Alinear verticalmente los elementos */
+  align-items: center; 
   height: 4em;
-  background-color: var(--color-fondo-nav); /* Color de fondo de la barra de navegación */
-  padding: 0.3em 0.4em; /* Espaciado interno */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  background-color: var(--color-fondo-nav); 
+  padding: 0.3em 0.4em; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 nav div {
   display: flex;
-  align-items: center; /* Alinear verticalmente los elementos dentro del div */
+  align-items: center; 
 }
 
-nav a,
-nav router-link {
-  color: var(--texto-primario); /* Color del texto de los enlaces */
-  text-decoration: none; /* Eliminar subrayado de los enlaces */
-  padding: 0.5em 0.3em; /* Espaciado alrededor del texto */
-  border-radius: 5px; /* Bordes redondeados */
+nav a {
+  color: var(--texto-primario);
+  text-decoration: none;
+  padding: 0.5em 0.3em; 
+  border-radius: 5px;
   transition:
     background-color 0.3s,
-    color 0.3s; /* Transiciones suaves */
+    color 0.3s; 
+}
+nav a:hover {
+  background-color: var(--color-fondo-hover); 
+  color: var(--color-letra-seleccion);
 }
 
-nav a:hover,
-nav router-link:hover {
-  background-color: var(--color-fondo-hover); /* Color de fondo al pasar el mouse */
-  color: var(--color-letra-seleccion); /* Color del texto al pasar el mouse */
+.loginMonyMonty {
+  background-color: var(--color-fondo-boton); 
+  color: var(--texto-primario);
+  padding: 1em 1em; 
+  border: none; 
+  border-radius: 5px;
+  cursor: pointer; 
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+.loginMonyMonty:hover{
+  background-color: var(--color-fondo-hover); 
+  color: var(--color-letra-seleccion); 
 }
 
 .app-logo {
-  max-width: auto; /* Asegura que la imagen no exceda el ancho del contenedor */
-  height: 3em; /* Mantiene la proporción de la imagen */
+  max-width: auto;
+  height: 3em; 
 }
 
-/* Estilo específico para el botón de inicio de sesión */
-.login-button {
-  background-color: var(--color-fondo-boton); /* Color de fondo del botón */
-  color: var(--texto-primario); /* Color del texto del botón */
-  padding: 0.5em 1em; /* Espaciado alrededor del texto del botón */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Bordes redondeados */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  transition:
-    background-color 0.3s,
-    color 0.3s; /* Transiciones suaves */
+.menu-links {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
 }
 
-.login-button:hover {
-  background-color: var(--color-fondo-hover); /* Color de fondo al pasar el mouse */
-  color: var(--color-letra-seleccion); /* Color del texto al pasar el mouse */
+.menu-links .separator {
+  color: var(--texto-primario);
+  padding: 0 0.3em;
+  user-select: none; 
+  pointer-events: none;
 }
+
 </style>
