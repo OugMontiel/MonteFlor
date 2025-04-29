@@ -1,4 +1,3 @@
-
 <script>
 import QueEsMonyMonty from "@/components/documentacion/queEsMonyMonty.vue";
 import Instalacion from "@/components/documentacion/instalacion.vue";
@@ -7,7 +6,7 @@ import carpetaBackend from "@/components/documentacion/carpetaBackend.vue";
 import carpetaFrontend from "@/components/documentacion/carpetaFrontend.vue";
 
 import Footer from "@/components/web/footer.vue";
-import Header from "@/components/web/header.vue";
+import Header from "@/components/documentacion/Elementos/header.vue";
 
 export default {
   name: "vista-para toda la documentacion",
@@ -72,9 +71,6 @@ export default {
   </div>
   <Footer />
 </template>
-
-
-
 
 <style scoped>
 .documentation-view {

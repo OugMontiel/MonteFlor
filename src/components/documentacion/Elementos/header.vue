@@ -8,16 +8,9 @@ export default {
       logo,
     };
   },
-  methods: {
-    irAMonymonty() {
-      window.location.href = "http://localhost:5174/login";
-    },
-    irADocumentacion() {
-      this.$router.push("/Document");
-    },
-  },
 };
 </script>
+
 <template>
   <nav>
     <!-- logo -->
@@ -29,17 +22,12 @@ export default {
 
     <!-- menú -->
     <div class="menu-links">
-      <a href="#inicio">Inicio</a>
-      <span class="separator">|</span>
-      <a href="#productos">Productos</a>
-      <span class="separator">|</span>
-      <a href="#nosotros">Nosotros</a>
-      <span class="separator">|</span>
-      <a href="#clientes">Clientes</a>
-      <span class="separator">|</span>
-      <a href="#contacto">Contacto</a>
-      <span class="separator">|</span>
-      <a href="" @click.prevent="irADocumentacion">Documentacion</a>
+      <router-link to="/">
+        <a>Inicio</a>
+      </router-link>
+      <router-link to="/Document">
+        <a>Documentacion</a>
+      </router-link>
     </div>
 
     <!-- inicio de sesión -->

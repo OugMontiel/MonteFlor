@@ -8,7 +8,6 @@ export default {
 };
 </script>
 
-
 <template>
   <HeaderView />
 
@@ -83,7 +82,6 @@ export default {
 
   <FooterView />
 </template>
-
 
 <style scoped>
 /* 🔹 Estilo general */
