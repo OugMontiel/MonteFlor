@@ -22,12 +22,8 @@ export default {
 
     <!-- menú -->
     <div class="menu-links">
-      <router-link to="/">
-        <a>Inicio</a>
-      </router-link>
-      <router-link to="/Document">
-        <a>Documentacion</a>
-      </router-link>
+      <router-link to="/"> Inicio </router-link>
+      <router-link to="/documentacion"> Documentacion </router-link>
     </div>
 
     <!-- inicio de sesión -->

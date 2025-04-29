@@ -1,6 +1,11 @@
 import {createRouter, createWebHistory} from "vue-router";
-import HomeView from "@/views/paginaWeb/home.vue";
+
+// Rutas Principales
+import Home from "@/views/paginaWeb/home.vue";
 import document from "@/views/paginaDocumentacion/documentation.vue";
+
+// rutas hijas de MonyMonty
+import MonyMonty from "@/views/paginaDocumentacion/MonyMonty/principal.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,13 +13,20 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: Home,
     },
     // Vista estática de la documentación
     {
-      path: "/document",
+      path: "/documentacion",
       name: "Vista de la documentación",
       component: document,
+      children: [
+        {
+          path: "MonyMonty",
+          name: "documentación de MonyMonty",
+          component: MonyMonty,
+        },
+      ],
     },
   ],
 });
