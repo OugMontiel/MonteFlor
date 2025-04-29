@@ -1,32 +1,11 @@
 <script>
-import logo from "@/assets/img/MonyMontySinFondo3.png";
-
 export default {
-  name: "Navegacion-1",
-  data() {
-    return {
-      logo,
-    };
-  },
-  methods: {
-    irAMonymonty() {
-      window.location.href = "http://localhost:5174/login";
-    },
-    irADocumentacion() {
-      this.$router.push("/Document");
-    },
-  },
+  name: "Header de home",
 };
 </script>
-<template>
-  <nav>
-    <!-- logo -->
-    <div>
-      <router-link to="/">
-        <img :src="logo" alt="Icono de la aplicación" class="app-logo" />
-      </router-link>
-    </div>
 
+<template>
+  <header class="headerHome">
     <!-- menú -->
     <div class="menu-links">
       <a href="#inicio">Inicio</a>
@@ -38,21 +17,13 @@ export default {
       <a href="#clientes">Clientes</a>
       <span class="separator">|</span>
       <a href="#contacto">Contacto</a>
-      <span class="separator">|</span>
-      <a href="" @click.prevent="irADocumentacion">Documentacion</a>
     </div>
-
-    <!-- inicio de sesión -->
-
-    <div>
-      <button class="loginMonyMonty" @click="irAMonymonty">Inicio de Sesión</button>
-    </div>
-  </nav>
+  </header>
 </template>
 
 <style>
 /* Estilos para tu aplicación */
-nav {
+.headerHome {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,12 +33,12 @@ nav {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-nav div {
+.headerHome div {
   display: flex;
   align-items: center;
 }
 
-nav a {
+.headerHome a {
   color: var(--texto-primario);
   text-decoration: none;
   padding: 0.5em 0.3em;
@@ -76,30 +47,9 @@ nav a {
     background-color 0.3s,
     color 0.3s;
 }
-nav a:hover {
+.headerHome a:hover {
   background-color: var(--color-fondo-hover);
   color: var(--color-letra-seleccion);
-}
-
-.loginMonyMonty {
-  background-color: var(--color-fondo-boton);
-  color: var(--texto-primario);
-  padding: 1em 1em;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
-}
-.loginMonyMonty:hover {
-  background-color: var(--color-fondo-hover);
-  color: var(--color-letra-seleccion);
-}
-
-.app-logo {
-  max-width: auto;
-  height: 3em;
 }
 
 .menu-links {

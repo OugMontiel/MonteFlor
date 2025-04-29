@@ -1,46 +1,28 @@
 <script>
-import logo from "@/assets/img/MonyMontySinFondo3.png";
-
 export default {
-  name: "Navegacion-1",
-  data() {
-    return {
-      logo,
-    };
-  },
+  name: "Header de Documentacion",
 };
-</script> 
+</script>
 
 <template>
-  <nav>
-    <!-- logo -->
-    <div>
-      <router-link to="/">
-        <img :src="logo" alt="Icono de la aplicación" class="app-logo" />
-      </router-link>
-    </div>
-
+  <header class="HeaderDoc">
     <!-- menú -->
     <div class="menu-links">
-      <router-link to="/">
-        <a>Inicio</a>
+      <router-link to="/MonyMonty">
+        <a>MonyMonty</a>
       </router-link>
+      <!-- 
       <router-link to="/Document">
         <a>Documentacion</a>
-      </router-link>
+      </router-link> 
+      -->
     </div>
-
-    <!-- inicio de sesión -->
-
-    <div>
-      <button class="loginMonyMonty" @click="irAMonymonty">Inicio de Sesión</button>
-    </div>
-  </nav>
+  </header>
 </template>
 
 <style>
 /* Estilos para tu aplicación */
-nav {
+.HeaderDoc {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,12 +32,12 @@ nav {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-nav div {
+.HeaderDoc div {
   display: flex;
   align-items: center;
 }
 
-nav a {
+.HeaderDoc a {
   color: var(--texto-primario);
   text-decoration: none;
   padding: 0.5em 0.3em;
@@ -64,30 +46,9 @@ nav a {
     background-color 0.3s,
     color 0.3s;
 }
-nav a:hover {
+.HeaderDoc a:hover {
   background-color: var(--color-fondo-hover);
   color: var(--color-letra-seleccion);
-}
-
-.loginMonyMonty {
-  background-color: var(--color-fondo-boton);
-  color: var(--texto-primario);
-  padding: 1em 1em;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
-}
-.loginMonyMonty:hover {
-  background-color: var(--color-fondo-hover);
-  color: var(--color-letra-seleccion);
-}
-
-.app-logo {
-  max-width: auto;
-  height: 3em;
 }
 
 .menu-links {

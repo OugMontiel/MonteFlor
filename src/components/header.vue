@@ -2,7 +2,7 @@
 import logo from "@/assets/img/MonyMontySinFondo3.png";
 
 export default {
-  name: "Navegacion-1",
+  name: "Header principal de Monte Flor",
   data() {
     return {
       logo,
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <nav>
+  <header class="header">
     <!-- logo -->
     <div>
       <router-link to="/">
@@ -35,12 +35,12 @@ export default {
     <div>
       <button class="loginMonyMonty" @click="irAMonymonty">Inicio de Sesión</button>
     </div>
-  </nav>
+  </header>
 </template>
 
 <style>
 /* Estilos para tu aplicación */
-nav {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,12 +50,12 @@ nav {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-nav div {
+.header div {
   display: flex;
   align-items: center;
 }
 
-nav a {
+.header a {
   color: var(--texto-primario);
   text-decoration: none;
   padding: 0.5em 0.3em;
@@ -64,7 +64,7 @@ nav a {
     background-color 0.3s,
     color 0.3s;
 }
-nav a:hover {
+.header a:hover {
   background-color: var(--color-fondo-hover);
   color: var(--color-letra-seleccion);
 }
