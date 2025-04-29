@@ -1,15 +1,17 @@
 <script>
-import HeaderView from "@/components/web/header.vue";
-import FooterView from "@/components/web/footer.vue";
+import Header from "@/components/header.vue";
+import headerHome from "@/components/web/header.vue";
+import Footer from "@/components/web/footer.vue";
 
 export default {
   name: "Home-",
-  components: {HeaderView, FooterView},
+  components: {Header, headerHome, Footer},
 };
 </script>
 
 <template>
-  <HeaderView />
+  <Header />
+  <headerHome />
 
   <section id="inicio">
     <section class="titulo.home">
@@ -80,7 +82,7 @@ export default {
     <p>Contenido de la sección Contacto.</p>
   </section>
 
-  <FooterView />
+  <Footer />
 </template>
 
 <style scoped>

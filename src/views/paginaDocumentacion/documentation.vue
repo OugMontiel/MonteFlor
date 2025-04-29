@@ -1,16 +1,17 @@
 <script>
-import QueEsMonyMonty from "@/components/documentacion/queEsMonyMonty.vue";
-import Instalacion from "@/components/documentacion/instalacion.vue";
-import DefinicionDeCarpetas from "@/components/documentacion/definicionDeCarpetas.vue";
-import carpetaBackend from "@/components/documentacion/carpetaBackend.vue";
-import carpetaFrontend from "@/components/documentacion/carpetaFrontend.vue";
+import QueEsMonyMonty from "@/components/documentacion/MonyMonty/queEsMonyMonty.vue";
+import Instalacion from "@/components/documentacion/MonyMonty/instalacion.vue";
+import DefinicionDeCarpetas from "@/components/documentacion/MonyMonty/definicionDeCarpetas.vue";
+import carpetaBackend from "@/components/documentacion/MonyMonty/carpetaBackend.vue";
+import carpetaFrontend from "@/components/documentacion/MonyMonty/carpetaFrontend.vue";
 
 import Footer from "@/components/web/footer.vue";
-import Header from "@/components/documentacion/Elementos/header.vue";
+import HeaderDoc from "@/components/documentacion/header.vue";
+import Header from "@/components/header.vue";
 
 export default {
   name: "vista-para toda la documentacion",
-  components: {Header, Footer},
+  components: {Header, HeaderDoc, Footer},
   data() {
     return {
       topics: [
@@ -51,6 +52,7 @@ export default {
 
 <template>
   <Header />
+  <HeaderDoc />
   <div class="documentation-view">
     <div class="sidebar">
       <h2>Temas</h2>
