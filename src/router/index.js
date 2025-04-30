@@ -4,8 +4,9 @@ import {createRouter, createWebHistory} from "vue-router";
 import Home from "@/views/paginaWeb/home.vue";
 import document from "@/views/paginaDocumentacion/documentation.vue";
 
-// rutas hijas de MonyMonty
+// rutas hijas de Documentacion
 import MonyMonty from "@/views/paginaDocumentacion/MonyMonty/principal.vue";
+import MonteFlor from "@/views/paginaDocumentacion/MonteFlor/principal.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,6 +26,11 @@ const router = createRouter({
           path: "MonyMonty",
           name: "documentación de MonyMonty",
           component: MonyMonty,
+        },
+        {
+          path: "MonteFlor",
+          name: "documentación de MonteFlor",
+          component: MonteFlor,
         },
       ],
     },

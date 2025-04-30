@@ -8,13 +8,8 @@ export default {
   <header class="HeaderDoc">
     <!-- menú -->
     <div class="menu-links">
-      <router-link to="MonyMonty"> MonyMonty </router-link>
-
-      <!-- 
-      <router-link to="/Document">
-        <a>Documentacion</a>
-      </router-link> 
-      -->
+      <router-link to="/documentacion/MonyMonty">MonyMonty</router-link>
+      <router-link to="/documentacion/MonteFlor">MonteFlor</router-link>
     </div>
   </header>
 </template>

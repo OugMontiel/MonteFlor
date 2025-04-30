@@ -1,21 +1,11 @@
 <script>
-import Footer from "@/components/web/footer.vue";
-import HeaderDoc from "@/components/documentacion/header.vue";
-import Header from "@/components/header.vue";
-
 export default {
   name: "layaud de la documentacion monymonty",
-  components: {Header, HeaderDoc, Footer},
 };
 </script>
 
 <template>
-  <Header />
-  <HeaderDoc />
-  <div class="monymonty">
-    <h2>Temas</h2>
-  </div>
-  <Footer />
+  <h2>Hola desde doc Mony Monty</h2>
 </template>
 
 <style scoped></style>
