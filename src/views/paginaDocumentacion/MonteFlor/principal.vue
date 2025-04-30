@@ -1,8 +1,11 @@
 <script>
 export default {
-  name: "layaud de la documentacion monteFlor",
+  name: "layaud de la documentacion Monte Flor",
 };
 </script>
+
 <template>
-  <h1>Hola desde Doc de Monte Flor</h1>
+  <h2>Hola desde doc Mony Flor</h2>
 </template>
+
+<style scoped></style>
