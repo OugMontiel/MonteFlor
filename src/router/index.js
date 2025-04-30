@@ -9,6 +9,7 @@ import MonyMonty from "@/views/paginaDocumentacion/MonyMonty/principal.vue";
 import MonteFlor from "@/views/paginaDocumentacion/MonteFlor/principal.vue";
 
 // Rutas hijas de MonyMonty
+import MonyMontyBase from "@/views/paginaDocumentacion/MonyMonty/base.vue";
 import MonyMontyApi from "@/views/paginaDocumentacion/MonyMonty/api/api.vue";
 import MonyMontyApiUser from "@/views/paginaDocumentacion/MonyMonty/api/apiUser.vue";
 import MonyMontyApiAuth from "@/views/paginaDocumentacion/MonyMonty/api/apiAuth.vue";
@@ -30,8 +31,13 @@ const router = createRouter({
         {
           path: "MonyMonty",
           name: "monyMonty",
-          component: MonyMonty, 
+          component: MonyMonty,
           children: [
+            {
+              path: "",
+              name: "monyMontyHome",
+              component: MonyMontyBase,
+            },
             {
               path: "Api",
               name: "monyMontyApi",

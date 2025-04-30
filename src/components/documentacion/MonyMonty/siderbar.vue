@@ -20,9 +20,7 @@ export default {
 
 <template>
   <aside class="sidebar">
-    <h2>
-      General
-    </h2>
+    <h2>General</h2>
     <ul>
       <li @click="toggleSection('isApiOpen')">
         Api
