@@ -161,20 +161,20 @@ fetch('/auth/logout', {
 .api-auth h2 {
   color: #2c3e50;
   font-size: 1.8rem;
-  margin-bottom: 1em ;
+  margin-bottom: 1em;
   border-bottom: 2px solid #3498db;
   font-weight: 700;
 }
 .api-auth h3 {
   color: #34495e;
-  font-size: 1.3rem; 
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
 /* List styling */
 .api-auth ul {
   list-style-type: disc;
-  margin-left: .8em;
+  margin-left: 0.8em;
 }
 
 .api-auth li {
@@ -189,7 +189,7 @@ fetch('/auth/logout', {
 }
 
 /* Inline code styling */
-.api-auth code { 
+.api-auth code {
   padding: 2px 6px;
   font-family: "Courier New", Courier, monospace;
   font-size: 0.95rem;

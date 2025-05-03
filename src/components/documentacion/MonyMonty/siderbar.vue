@@ -23,9 +23,8 @@ export default {
     <h2>General</h2>
     <ul>
       <li @click="toggleSection('isApiOpen')">
-        Api
+        <router-link to="/documentacion/MonyMonty">Api</router-link>
         <ul v-if="isApiOpen">
-          <router-link to="/documentacion/MonyMonty/Api">Api</router-link>
           <li><router-link to="/documentacion/MonyMonty/ApiUser">Usuarios</router-link></li>
           <li><router-link to="/documentacion/MonyMonty/ApiAuth">Inicio Seccion</router-link></li>
         </ul>
