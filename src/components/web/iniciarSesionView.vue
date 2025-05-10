@@ -1,37 +1,32 @@
 <script>
+import logo from "@/assets/img/MonyMontySinFondo3.png";
+
 export default {
-  name: "Header-dehome",
+  name: "Header-principal de Monte Flor",
+  data() {
+    return {
+      logo,
+    };
+  },
   methods: {
-    irADocumentacion() {
-      this.$router.push('/documentacion');
+    irAMonymonty() {
+      this.$router.push('/');
     },
 
-  },
+  }
+
 };
 </script>
 
 <template>
-  
-    <!-- menú -->
-    <div class="menu-links">
-      <a href="#inicio">Inicio</a>
-      <span class="separator">|</span>
-      <a href="#productos">Productos</a>
-      <span class="separator">|</span>
-      <a href="#nosotros">Nosotros</a>
-      <span class="separator">|</span>
-      <a href="#clientes">Clientes</a>
-      <span class="separator">|</span>
-      <a href="#contacto">Contacto</a>
-      <span class="separator">|</span>
-      <a @click="irADocumentacion">Documentacion</a>
+    <div>
+      <button class="loginMonyMonty" @click="irAMonymonty">Inicio de Sesión</button>
     </div>
 </template>
 
 <style>
-
 /* Estilos para tu aplicación */
-.headerHome {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,27 +34,48 @@ export default {
   background-color: var(--color-fondo-nav);
   padding: 0.3em 0.4em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
 }
 
-.headerHome div {
+.header div {
   display: flex;
   align-items: center;
 }
 
-.headerHome a {
+.login-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 70%;
+  height: 60%;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-logo {
+  max-width: 120px;
+}
+
+.loginMonyMonty {
+  background-color: var(--color-fondo-boton);
   color: var(--texto-primario);
-  text-decoration: none;
-  padding: 0.5em 0.3em;
+  padding: 1em 1em;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
   transition:
     background-color 0.3s,
     color 0.3s;
 }
 
-.headerHome a:hover {
+.loginMonyMonty:hover {
   background-color: var(--color-fondo-hover);
   color: var(--color-letra-seleccion);
+}
+
+.app-logo {
+  max-width: auto;
+  height: 3em;
 }
 
 .menu-links {

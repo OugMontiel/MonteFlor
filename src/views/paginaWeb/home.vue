@@ -1,183 +1,260 @@
 <script>
-import Header from "@/components/header.vue";
-import headerHome from "@/components/web/header.vue";
-import Footer from "@/components/web/footer.vue";
+import logo from "@/assets/img/MonyMontySinFondo3.png";
+
+import headerHomeView from "@/components/web/header.vue";
+import FooterView from "@/components/web/footer.vue";
+import iniciarSesionView from "@/components/web/iniciarSesionView.vue";
 
 export default {
   name: "Home-",
-  components: {Header, headerHome, Footer},
+  data() {
+    return {
+      logo,
+    };
+  },
+  components: {
+    headerHomeView,
+    FooterView,
+    iniciarSesionView
+  },
+  methods: {
+    irAInicio() {
+      this.$router.push('/');
+    },
+
+  }
 };
 </script>
 
 <template>
-  <Header />
-  <headerHome />
+  <header class="headerHome">
+    <div class="login-logo">
+      <img :src="logo" alt="Icono de la aplicación" class="logo" @click="irAInicio" />
+    </div>
 
-  <section id="inicio">
-    <section class="titulo.home">
-      <h1>MonyMonty</h1>
-      <blockquote>"La riqueza consiste mucho más en disfrutar que en poseer". - Aristóteles</blockquote>
+    <headerHomeView />
+    <iniciarSesionView />
+  </header>
+
+  <main class="main-container">
+
+    <section id="inicio" class="inicio-hero">
+
+      <div class="inicio-content">
+        <h1>MonyMonty</h1>
+        <p>Una forma inteligente de manejar tus finanzas</p>
+        <blockquote>"La riqueza consiste mucho más en disfrutar que en poseer". - Aristóteles</blockquote>
+      </div>
+
     </section>
-  </section>
 
-  <section id="nosotros">
-    <section class="introduction.home">
-      <p>MonyMonty es una iniciativa que surgió debido a la falta de educación financiera dentro de mi núcleo familiar.</p>
+    <section id="nosotros" class="nosotros">
+
+      <div class="nosotros-content">
+
+        <div class="nosotros-titulo">
+          <h2>¿Por qué es importante la educación financiera?</h2>
+        </div>
+
+        <div class="nosotros-texto">
+          <p>MonyMonty nació de una necesidad personal: la falta de educación financiera en mi familia. Esta situación
+            se repite en muchas otras familias colombianas y latinoamericanas. La carencia de conocimientos financieros
+            puede limitar nuestras decisiones, llevarnos al endeudamiento y frenar nuestro desarrollo económico.</p>
+        </div>
+
+      </div>
+
     </section>
 
-    <section class="problem.home">
-      <h2>¿Por qué es importante la educación financiera?</h2>
-      <p>y Así como en mi familia, es común en muchas otras que la educación financiera no esté presente.</p>
+    <section id="productos" class="producto">
 
-      <p>
-        Es un problema que afecta a las familias, pero es más bien una carencia generalizada en la sociedad colombiana y latinoamericana. La
-        falta de conocimientos financieros limita la habilidad de las personas para administrar eficazmente sus finanzas personales, lo cual
-        puede resultar en dificultades económicas y endeudamiento. Además, esta carencia afecta el desarrollo económico y la estabilidad
-        financiera de nuestras comunidades y países en general.
-      </p>
-    </section>
-  </section>
-
-  <section id="productos">
-    <section class="solution.home">
       <h2>¿Qué es MonyMonty?</h2>
+      <p>Una solución integral para tu bienestar financiero basada en tres pilares:</p>
 
-      <p>
-        En MonyMonty ofrecemos una solución integral que abarca tres aspectos clave: Educación, Control y Gestión, todos diseñados para un
-        manejo eficiente de sus finanzas personales.
-      </p>
-      <ul>
-        <li>
-          <strong>Educación:</strong> Proporcionamos a nuestros usuarios técnicas y métodos que mejoran sus habilidades y conocimientos en
-          finanzas personales. Nuestro objetivo es empoderar a los usuarios con el conocimiento necesario para tomar decisiones financieras
-          informadas.
-        </li>
-        <li>
-          <strong>Control:</strong> Ofrecemos un sistema interactivo e intuitivo que permite a cada usuario llevar el registro detallado de
-          sus transacciones financieras. Con nuestro sistema, los usuarios pueden ver a dónde se destina cada peso, establecer metas
-          financieras, controlar sus inversiones y mucho más.
-        </li>
-        <li>
-          <strong>Gestión:</strong> Nos enfocamos en conectar a nuestros usuarios con mentores o expertos financieros capacitados. A través
-          de estos expertos, nuestros usuarios pueden aprovechar al máximo nuestro sistema y siempre contarán con asesoramiento financiero
-          directo y personalizado.
-        </li>
-      </ul>
+      <div class="producto-grid">
 
-      <p>
-        Con MonyMonty estamos ofreciendo mucho más que una simple aplicación. Estamos construyendo una comunidad amigable y comprometida en
-        capacitar a las personas para alcanzar una salud financiera óptima. ¡Nos encantaría que te unas a nosotros y comiences a tomar el
-        control de tu futuro financiero hoy mismo!
-      </p>
+        <div class="producto-card">
+          <h3><strong>Educación</strong></h3>
+          <p>Mejora tus conocimientos en finanzas personales con técnicas y recursos prácticos.</p>
+        </div>
+
+        <div class="producto-card">
+          <h3><strong>Control</strong></h3>
+          <p>Registra, visualiza y analiza tus finanzas personales con nuestra app intuitiva.</p>
+        </div>
+
+        <div class="producto-card">
+          <h3><strong>Gestión</strong></h3>
+          <p>Recibe asesoría personalizada de expertos que te ayudarán a planificar tu futuro financiero.</p>
+        </div>
+
+      </div>
+
+      <p class="mensaje-final">Únete a nuestra comunidad y comienza a construir una vida financiera más saludable.</p>
+      
     </section>
-  </section>
 
-  <section id="clientes">
-    <h2>Clientes</h2>
-    <p>Contenido de la sección Clientes.</p>
-  </section>
+    <section id="clientes" class="clientes">
+      <h2>Clientes</h2>
+      <p>Contenido de la sección Clientes.</p>
+    </section>
 
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Contenido de la sección Contacto.</p>
-  </section>
+    <section id="contacto" class="contacto">
+      <h2>Contacto</h2>
+      <p>Contenido de la sección Contacto.</p>
+    </section>
 
-  <Footer />
+    <FooterView />
+  </main>
 </template>
 
 <style scoped>
-/* 🔹 Estilo general */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.headerHome {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 6em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0 1.5em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.login-logo img.logo {
+  height: 50px;
+  cursor: pointer;
+}
+
+/* ------ inicio ------ */
+
+.main-container {
+  width: 100%;
+  padding-top: 4em;
+  background: #f9f9f9;
+}
+
 section {
-  max-width: 900px; /* Se centra el contenido */
-  margin: 0 auto;
-  padding: 20px;
-  text-align: justify;
+  max-width: 100%;
+  padding: 1em 2em;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* 🔹 Título principal */
-.titulo.home {
+.inicio-hero {
+  background: linear-gradient(135deg, #54b6ff 0%, #4096ee 100%);
+  color: white;
   text-align: center;
-  margin-bottom: 50px;
+  padding: 4em 2em;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 200px;
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
+.inicio-hero h1 {
+  font-size: 4rem;
+  margin-bottom: 0.5em;
+  color: #ffae2b;
+}
+
+.inicio-hero p {
+  font-size: 3rem;
+  margin-bottom: 1em;
+  color: #444;
+}
+
+.inicio-hero blockquote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+/* ------ nosotros ------ */
+
+.nosotros-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 200px;
+  gap: 1.5em;
+  margin: 2em 0;
+  justify-content: center;
+}
+
+.nosotros-titulo h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
   color: #333;
 }
 
-blockquote {
-  font-style: italic;
-  color: #555;
-  margin: 10px 0;
-  text-align: center;
-}
-
-/* 🔹 Secciones */
-.introduction.home,
-.problem.home,
-.solution.home {
-  margin-bottom: 40px;
-}
-
-/* 🔹 Subtítulos */
-h2 {
-  font-size: 2rem;
-  color: #222;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-/* 🔹 Párrafos */
-p {
-  font-size: 1.1rem;
+.nosotros-texto p {
+  font-size: 2em;
   line-height: 1.6;
   color: #444;
-  text-align: justify;
 }
 
-/* 🔹 Lista de características */
-ul {
-  list-style-type: none;
-  padding-left: 0;
+/* ------ producto ------ */
+
+.producto {
+  background: linear-gradient(135deg, #54b6ff 0%, #4096ee 100%);
+  padding: 200px;
 }
 
-ul li {
-  background: #f4f4f4;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 10px;
+.producto-grid {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  margin: 2em 0;
+  justify-content: center;
 }
 
-ul li strong {
-  color: #000;
-  font-size: 1.1rem;
+.producto-card {
+  flex: 1 1 300px;
+  background: #f4f4f4;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
 
-/* 🔹 Responsive Design */
+.producto-card:hover {
+  transform: translateY(-5px);
+}
+
+.producto-card h3 {
+  margin-bottom: 0.8em;
+  color: #1e88e5;
+}
+
+.mensaje-final {
+  text-align: center;
+  margin-top: 2em;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2e2e2e;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  section {
-    padding: 15px;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.7rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  ul li {
+  .producto-grid {
     flex-direction: column;
-    text-align: center;
+    gap: 1em;
+  }
+
+  .hero h1 {
+    font-size: 2.3rem;
   }
 }
 </style>

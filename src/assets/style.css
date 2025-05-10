@@ -9,8 +9,8 @@
   /* Colores del tema claro */
   --color-fondo: #ffffff; /* Color de fondo principal */
   --texto-primario: #000000; /* Color de texto principal */
-  --color-letra-seleccion: #ffcc00; /* Color de texto seleccionado */
-  --color-fondo-nav: #f0f0f0; /* Color de fondo de la barra de navegación */
+  --color-letra-seleccion: #F04E23 ; /* Color de texto seleccionado */
+  --color-fondo-nav: #F5F5F5; /* Color de fondo de la barra de navegación */
   --color-fondo-hover: #e0e0e0; /* Color de fondo al pasar el mouse */
 
   /* Propiedades de texto */

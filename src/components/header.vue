@@ -1,25 +1,34 @@
 <script>
 import logo from "@/assets/img/MonyMontySinFondo3.png";
 
+import iniciarSesionView from "@/components/web/iniciarSesionView.vue";
+
 export default {
-  name: "Header principal de Monte Flor",
+  name: "Header-principal de Monte Flor",
   data() {
     return {
       logo,
     };
   },
+  components: {
+    iniciarSesionView
+  },
+  methods: {
+    irAInicio() {
+      this.$router.push('/');
+    },
+
+  }
+
 };
 </script>
 
 <template>
   <header class="header">
     <!-- logo -->
-    <div>
-      <router-link to="/">
-        <img :src="logo" alt="Icono de la aplicación" class="app-logo" />
-      </router-link>
+    <div class="login-form-logo">
+      <img :src="logo" alt="Icono de la aplicación" class="login-logo" @click="irAInicio" />
     </div>
-
     <!-- menú -->
     <div class="menu-links">
       <router-link to="/"> Inicio </router-link>
@@ -27,10 +36,7 @@ export default {
     </div>
 
     <!-- inicio de sesión -->
-
-    <div>
-      <button class="loginMonyMonty" @click="irAMonymonty">Inicio de Sesión</button>
-    </div>
+    <iniciarSesionView />
   </header>
 </template>
 
@@ -51,18 +57,19 @@ export default {
   align-items: center;
 }
 
-.header a {
-  color: var(--texto-primario);
-  text-decoration: none;
-  padding: 0.5em 0.3em;
-  border-radius: 5px;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
+.login-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 70%;
+  height: 60%;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
-.header a:hover {
-  background-color: var(--color-fondo-hover);
-  color: var(--color-letra-seleccion);
+
+.login-logo {
+  max-width: 120px;
 }
 
 .loginMonyMonty {
@@ -76,6 +83,7 @@ export default {
     background-color 0.3s,
     color 0.3s;
 }
+
 .loginMonyMonty:hover {
   background-color: var(--color-fondo-hover);
   color: var(--color-letra-seleccion);

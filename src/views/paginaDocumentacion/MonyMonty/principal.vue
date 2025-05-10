@@ -1,5 +1,6 @@
 <script>
 import sidebar from "@/components/documentacion/MonyMonty/siderbar.vue";
+
 export default {
   name: "layaud de la documentacion monteFlor",
   components: {
