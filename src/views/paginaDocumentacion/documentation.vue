@@ -1,21 +1,21 @@
 <script>
-import Footer from "@/components/web/footer.vue";
-import HeaderDoc from "@/components/documentacion/header.vue";
-import Header from "@/components/header.vue";
+import FooterView from "@/components/web/footer.vue";
+import HeaderDocView from "@/components/documentacion/header.vue";
+import HeaderView from "@/components/header.vue";
 
 export default {
   name: "vista-para toda la documentacion",
-  components: {Header, HeaderDoc, Footer},
+  components: {HeaderView, HeaderDocView, FooterView},
 };
 </script>
 
 <template>
-  <Header />
-  <HeaderDoc />
+  <HeaderView />
+  <HeaderDocView />
   <main>
     <router-view class="us__content" />
   </main>
-  <Footer />
+  <FooterView />
 </template>
 
 <style scoped>

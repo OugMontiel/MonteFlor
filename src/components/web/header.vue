@@ -16,9 +16,9 @@ export default {
     <div class="menu-links">
       <a href="#inicio">Inicio</a>
       <span class="separator">|</span>
-      <a href="#productos">Productos</a>
-      <span class="separator">|</span>
       <a href="#nosotros">Nosotros</a>
+      <span class="separator">|</span>
+      <a href="#productos">Productos</a>
       <span class="separator">|</span>
       <a href="#clientes">Clientes</a>
       <span class="separator">|</span>
@@ -60,6 +60,8 @@ export default {
 .headerHome a:hover {
   background-color: var(--color-fondo-hover);
   color: var(--color-letra-seleccion);
+  cursor: pointer;
+  transform: scale(1.07);
 }
 
 .menu-links {
