@@ -17,6 +17,12 @@ export default {
     irAInicio() {
       this.$router.push('/');
     },
+    methods: {
+    irADocumentacion() {
+      this.$router.push('/documentacion');
+    },
+
+  },
 
   }
 

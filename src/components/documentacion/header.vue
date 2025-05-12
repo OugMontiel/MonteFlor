@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "Header de Documentacion",
+  name: "Header -de Documentacion",
 };
 </script>
 

@@ -1,6 +1,6 @@
 export default [
   {
-    name: "Raymundo Souza",
+    name: "Roberto Vargas",
     text: "Desde que uso esta app, tengo total claridad de mis finanzas. Antes no sabía en qué se me iba el dinero, pero ahora puedo categorizar mis gastos y ajustar mi presupuesto mensual. ¡He ahorrado un 20% más que antes!",
     rating: 5,
   },
