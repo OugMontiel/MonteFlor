@@ -19,33 +19,40 @@ export default {
 </script>
 
 <template>
-    <div>
-      <button class="loginMonyMonty" @click="irAMonymonty">Inicio de Sesión</button>
+  <div class="container">
+    <div class="options">
+      <button class="btn-login" @click="irAMonymonty">Iniciar Sesion</button>
     </div>
+    <div class="options">
+      <button class="btn-register" @click="irAMonymonty">Registrarse</button>
+    </div>
+  </div>
+
 </template>
 
 <style>
 /* Estilos para tu aplicación */
+.container {
+  display: flex;
+  justify-content: center;
+}
 
-.loginMonyMonty {
-  background-color: var(--color-fondo-boton);
+.options {
+  cursor: pointer;
   color: var(--texto-primario);
   padding: 1em 1em;
-  border: none;
+  font-size: var(--texto-tamano-boton);
+  background: var(--color-fondo-boton-claro);
+  border: 2px solid rgb(0, 0, 255);
   border-radius: 5px;
-  font-size: 15px;
-  cursor: pointer;
   transition:
     background-color 0.3s,
     color 0.3s;
 }
 
-.loginMonyMonty:hover {
-  font-weight: bold;
-  background-color: var(--color-fondo-hover);
+.options:hover {
   color: var(--color-letra-seleccion);
-  cursor: pointer;
-  transform: scale(1.07);
 }
+
 
 </style>
