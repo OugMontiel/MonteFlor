@@ -7,17 +7,50 @@
   font-weight: 400;
 
   /* Colores del tema claro */
-  --color-fondo: #ffffff; /* Color de fondo principal */
-  --texto-primario: #000000; /* Color de texto principal */
-  --color-letra-seleccion: #F04E23 ; /* Color de texto seleccionado */
-  --color-fondo-nav: #F5F5F5; /* Color de fondo de la barra de navegación */
-  --color-fondo-hover: #e9e5e5; /* Color de fondo al pasar el mouse */
+
+   /* 🎨 Paleta base */
+  --color-acento: #F25C2F;              /* Principal: botones, enlaces, énfasis */
+  --color-acento-suave: #FF9B73;        /* Hover o elementos suaves */
+  --color-oscuro: #2F2F2F;              /* Texto principal y navbar */
+  --color-claro: #F9F9F9;               /* Fondo general */
+  --color-neutro: #CCCCCC;              /* Bordes, desactivados, secundarios */
+
+  /* 🖋️ Texto */
+  --texto-primario: #000000;
+  --texto-secundario: var(--color-oscuro);
+  --texto-claro: #FFFFFF;
+
+  /* 🧱 Fondos */
+  --color-fondo: var(--color-claro);
+  --color-fondo-nav: var(--color-claro);
+  --color-fondo-hover: #e9e5e5;
+
+  /* 🔲 Botones */
+  --color-fondo-boton-claro: var(--color-acento-suave);
+  --color-fondo-boton-claro-hover: var(--color-acento-suave);
+  --color-fondo-boton-oscuro: var(--color-oscuro);
+  --color-fondo-boton-oscuro-hover: #444;
+
+  /* 📏 Bordes y contenedores */
+  --borde-radio: 12px;
+  --borde-claro: var(--color-neutro);
+  --borde-oscuro: ;
+
+  /* 🔤 Tipografía */
+  --fuente-principal: 'Segoe UI', sans-serif;
+  --tamano-texto-base: 1rem;
+  --tamano-texto-titulo: 1rem;
+  --tamano-texto-boton: 1rem;
+
+  /* 💡 Otros */
+  --color-letra-seleccion: #F04E23;
 
   /* Propiedades de texto */
   font-synthesis: none; /* Desactivar síntesis de fuentes */
   text-rendering: optimizeLegibility; /* Mejora la legibilidad del texto */
   -webkit-font-smoothing: antialiased; /* Suavizado de fuentes en WebKit */
   -moz-osx-font-smoothing: grayscale; /* Suavizado de fuentes en macOS */
+
 }
 
 [data-theme="dark"] {
@@ -26,6 +59,27 @@
   --texto-primario: #ffffff; /* Color de texto principal */
   --color-fondo-nav: #333; /* Color de fondo de la barra de navegación */
   --color-fondo-hover: #555; /* Color de fondo al pasar el mouse */
+
+
+  --color-dominante: #1c1c1c;
+  --color-secundario: #ffffff;
+  --color-acento: #F25C2F;
+
+  --color-fondo: #121212;
+  --color-fondo-nav: #1e1e1e;
+  --color-fondo-hover: #2a2a2a;
+  --color-fondo-boton-claro: #2F2F2F;
+  --color-fondo-boton-claro-hover: #3a3a3a;
+  --color-fondo-boton-oscuro: #ffffff;
+  --color-fondo-boton-oscuro-hover: #f2f2f2;
+
+  --texto-primario: #ffffff;
+  --texto-secundario: #c0c0c0;
+  --texto-claro: #000000;
+  --color-letra-seleccion: #FFA07A;
+
+  --color-borde-claro: #555;
+  --color-borde-oscuro: #aaa;
 }
 
 /* Estilos globales */
