@@ -2,7 +2,7 @@
 import logo from "@/assets/img/MonyMontySinFondo3.png";
 import imgNosotros1 from "@/assets/img/nosotros-imagen1.svg";
 
-import headerHomeView from "@/components/web/header.vue";
+import headerHomeView from "@/components/web/headerWeb.vue";
 import FooterView from "@/components/web/footer.vue";
 import iniciarSesionView from "@/components/web/iniciarSesionView.vue";
 
@@ -118,31 +118,14 @@ export default {
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
-* {
-  font-family: 'Poppins', sans-serif;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .headerHome {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 6em;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  padding: 0 1.5em;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  padding: 0.7rem;
+  background: var(--color-fondo-nav);
 }
-
-.login-logo img.logo {
-  height: 50px;
+.logo {
+  height: 3rem;
   cursor: pointer;
 }
 
@@ -150,7 +133,6 @@ export default {
 
 .main-container {
   width: 100%;
-  padding-top: 4em;
   background: #f9f9f9;
 }
 
@@ -358,13 +340,21 @@ section {
 }
 
 /* Pequeño: móviles medianos y grandes (sm) */
-@media (min-width: 576px) and (max-width: 767.98px) {}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  
+}
 
 /* Mediano: tablets (md) */
-@media (min-width: 768px) and (max-width: 991.98px) {}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  
+}
 
 /* Grande: laptops (lg) */
-@media (min-width: 992px) and (max-width: 1199.98px) {}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .login-logo img.logo {
+    height: 3rem;
+  }
+}
 
 /* Extra grande: pantallas grandes (xl) */
 @media (min-width: 1200px) and (max-width: 1399.98px) {}
