@@ -12,27 +12,31 @@ export default {
 
 <template>
   <!-- menú -->
-  <div class="menu-links">
-    <a href="#inicio">Inicio</a>
+  <div class="container-links">
+    <a class="linksNav" href="#inicio">Inicio</a>
     <span class="separator">|</span>
-    <a href="#nosotros">Nosotros</a>
+    <a class="linksNav" href="#nosotros">Nosotros</a>
     <span class="separator">|</span>
-    <a href="#productos">Productos</a>
+    <a class="linksNav" href="#productos">Productos</a>
     <span class="separator">|</span>
-    <a href="#clientes">Clientes</a>
+    <a class="linksNav" href="#clientes">Clientes</a>
     <span class="separator">|</span>
-    <a href="#contacto">Contacto</a>
+    <a class="linksNav" href="#contacto">Contacto</a>
     <span class="separator">|</span>
-    <a @click="irADocumentacion">Documentacion</a>
+    <a class="linksNav" @click="irADocumentacion">Documentacion</a>
   </div>
 </template>
 
 <style>
 /* Estilos para tu aplicación */
-.menu-links {
+.container-links {
   display: flex;
   align-items: center;
   gap: 0.3em;
+}
+
+.linksNav:hover {
+  color: var(--color-acento);
 }
 
 .separator {
@@ -43,7 +47,6 @@ export default {
 }
 
 .separator:hover {
-  color: var(--texto-primario);
   padding: 0 0.3em;
   user-select: none;
   pointer-events: none;
