@@ -20,14 +20,13 @@ export default {
     headerHomeView,
     FooterView,
     iniciarSesionView,
-    testimoniosView
+    testimoniosView,
   },
   methods: {
     irAInicio() {
-      this.$router.push('/');
+      this.$router.push("/");
     },
-
-  }
+  },
 };
 </script>
 
@@ -42,21 +41,16 @@ export default {
   </header>
 
   <main class="main-container">
-
     <section id="inicio" class="inicio-hero">
-
       <div class="inicio-content">
         <h1>MonyMonty</h1>
         <p>Una forma inteligente de manejar tus finanzas</p>
         <blockquote>"La riqueza consiste mucho más en disfrutar que en poseer". - Aristóteles</blockquote>
       </div>
-
     </section>
 
     <section id="nosotros" class="nosotros">
-
       <div class="nosotros-content">
-
         <div class="nosotros-titulo">
           <h2>¿Por qué es importante la educación financiera?</h2>
           <img :src="imgNosotros1" alt="Icono de la aplicación" class="titulo-image" />
@@ -64,22 +58,20 @@ export default {
 
         <div class="nosotros-texto">
           <h2>Estamos convencidos de que todos podemos crecer.</h2>
-          <p>MonyMonty nació de una necesidad personal: la falta de educación financiera en mi familia. Esta situación
-            se repite en muchas otras familias colombianas y latinoamericanas. La carencia de conocimientos financieros
-            puede limitar nuestras decisiones, llevarnos al endeudamiento y frenar nuestro desarrollo económico.</p>
+          <p>
+            MonyMonty nació de una necesidad personal: la falta de educación financiera en mi familia. Esta situación se repite en muchas
+            otras familias colombianas y latinoamericanas. La carencia de conocimientos financieros puede limitar nuestras decisiones,
+            llevarnos al endeudamiento y frenar nuestro desarrollo económico.
+          </p>
         </div>
-
       </div>
-
     </section>
 
     <section id="productos" class="producto">
-
       <h2>¿Qué es MonyMonty?</h2>
       <p>Una solución integral para tu bienestar financiero basada en tres pilares:</p>
 
       <div class="producto-grid">
-
         <div class="producto-card">
           <h3><strong>Educación</strong></h3>
           <p>Mejora tus conocimientos en finanzas personales con técnicas y recursos prácticos.</p>
@@ -94,16 +86,13 @@ export default {
           <h3><strong>Gestión</strong></h3>
           <p>Recibe asesoría personalizada de expertos que te ayudarán a planificar tu futuro financiero.</p>
         </div>
-
       </div>
 
       <p class="mensaje-final">Únete a nuestra comunidad y comienza a construir una vida financiera más saludable.</p>
-
     </section>
 
     <section id="clientes" class="clientes">
-
-      <h2>Clientes satisfechos </h2>
+      <h2>Clientes satisfechos</h2>
 
       <testimoniosView />
     </section>
@@ -157,7 +146,6 @@ section {
   border-radius: 0;
   box-shadow: none;
   padding: 200px;
-
 }
 
 .inicio-hero h1 {
@@ -196,7 +184,7 @@ section {
 
 .nosotros-titulo h2 {
   font-size: 40px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-bottom: 1rem;
   text-align: center;
   color: #333;
@@ -208,7 +196,7 @@ section {
 
 .nosotros-texto h2 {
   font-size: 40px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-align: justify;
   margin-bottom: 20px;
 }
@@ -229,7 +217,7 @@ section {
 
 .producto h2 {
   font-size: 45px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .producto p {
@@ -280,14 +268,11 @@ section {
 
 .clientes h2 {
   font-size: 50px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-align: center;
   margin: 30px;
   padding: 10px;
 }
-
-
-
 
 /* Responsive */
 /* Extra pequeño: móviles pequeños (xs) */
@@ -318,7 +303,6 @@ section {
 
   .inicio-content blockquote {
     font-size: 20px;
-
   }
 
   .nosotros-content {
@@ -336,17 +320,14 @@ section {
   .hero h1 {
     font-size: 2.3rem;
   }
-
 }
 
 /* Pequeño: móviles medianos y grandes (sm) */
 @media (min-width: 576px) and (max-width: 767.98px) {
-  
 }
 
 /* Mediano: tablets (md) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-  
 }
 
 /* Grande: laptops (lg) */
@@ -357,8 +338,10 @@ section {
 }
 
 /* Extra grande: pantallas grandes (xl) */
-@media (min-width: 1200px) and (max-width: 1399.98px) {}
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+}
 
 /* XXL: monitores muy grandes */
-@media (min-width: 1400px) {}
+@media (min-width: 1400px) {
+}
 </style>

@@ -10,20 +10,17 @@ export default {
   },
   methods: {
     irAMonymonty() {
-      this.$router.push('/');
+      this.$router.push("/");
     },
-
-  }
-
+  },
 };
 </script>
 
 <template>
   <div class="container-button">
-      <button class="button-login" @click="irAMonymonty">Iniciar Sesion</button>
-      <button class="button-registrar" @click="irAMonymonty">Registrarse</button>
+    <button class="button-login" @click="irAMonymonty">Iniciar Sesion</button>
+    <button class="button-registrar" @click="irAMonymonty">Registrarse</button>
   </div>
-
 </template>
 
 <style>
@@ -41,7 +38,6 @@ export default {
   border-radius: 5px;
   cursor: pointer;
   font-size: var(--texto-tamano-boton);
-  
 }
 
 .button-login:hover {
@@ -65,9 +61,7 @@ export default {
 }
 
 .button-registrar:hover {
-  
   color: var(--texto-claro);
   background: var(--color-acento);
-
 }
 </style>

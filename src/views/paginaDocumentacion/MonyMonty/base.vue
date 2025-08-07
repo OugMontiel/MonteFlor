@@ -5,3 +5,9 @@
     <p>Esta es una sección dedicada a la documentación de Mony Monty.</p>
   </div>
 </template>
+
+<script>
+export default {
+  name: "SeccionMonyMonty",
+};
+</script>

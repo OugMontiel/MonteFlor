@@ -8,17 +8,17 @@
 
   /* Colores del tema claro */
 
-   /* 🎨 Paleta base */
-  --color-acento: #F25C2F;              /* Principal: botones, enlaces, énfasis */
-  --color-acento-suave: #FF9B73;        /* Hover o elementos suaves */
-  --color-oscuro: #2F2F2F;              /* Texto principal y navbar */
-  --color-claro: #F9F9F9;               /* Fondo general */
-  --color-neutro: #CCCCCC;              /* Bordes, desactivados, secundarios */
+  /* 🎨 Paleta base */
+  --color-acento: #f25c2f; /* Principal: botones, enlaces, énfasis */
+  --color-acento-suave: #ff9b73; /* Hover o elementos suaves */
+  --color-oscuro: #2f2f2f; /* Texto principal y navbar */
+  --color-claro: #f9f9f9; /* Fondo general */
+  --color-neutro: #cccccc; /* Bordes, desactivados, secundarios */
 
   /* 🖋️ Texto */
   --texto-primario: #000000;
   --texto-secundario: var(--color-oscuro);
-  --texto-claro: #FFFFFF;
+  --texto-claro: #ffffff;
 
   /* 🧱 Fondos */
   --color-fondo: var(--color-claro);
@@ -37,20 +37,19 @@
   --borde-oscuro: ;
 
   /* 🔤 Tipografía */
-  --fuente-principal: 'Segoe UI', sans-serif;
+  --fuente-principal: "Segoe UI", sans-serif;
   --tamano-texto-base: 1rem;
   --tamano-texto-titulo: 1rem;
   --tamano-texto-boton: 1rem;
 
   /* 💡 Otros */
-  --color-letra-seleccion: #F04E23;
+  --color-letra-seleccion: #f04e23;
 
   /* Propiedades de texto */
   font-synthesis: none; /* Desactivar síntesis de fuentes */
   text-rendering: optimizeLegibility; /* Mejora la legibilidad del texto */
   -webkit-font-smoothing: antialiased; /* Suavizado de fuentes en WebKit */
   -moz-osx-font-smoothing: grayscale; /* Suavizado de fuentes en macOS */
-
 }
 
 [data-theme="dark"] {
@@ -60,15 +59,14 @@
   --color-fondo-nav: #333; /* Color de fondo de la barra de navegación */
   --color-fondo-hover: #555; /* Color de fondo al pasar el mouse */
 
-
   --color-dominante: #1c1c1c;
   --color-secundario: #ffffff;
-  --color-acento: #F25C2F;
+  --color-acento: #f25c2f;
 
   --color-fondo: #121212;
   --color-fondo-nav: #1e1e1e;
   --color-fondo-hover: #2a2a2a;
-  --color-fondo-boton-claro: #2F2F2F;
+  --color-fondo-boton-claro: #2f2f2f;
   --color-fondo-boton-claro-hover: #3a3a3a;
   --color-fondo-boton-oscuro: #ffffff;
   --color-fondo-boton-oscuro-hover: #f2f2f2;
@@ -76,7 +74,7 @@
   --texto-primario: #ffffff;
   --texto-secundario: #c0c0c0;
   --texto-claro: #000000;
-  --color-letra-seleccion: #FFA07A;
+  --color-letra-seleccion: #ffa07a;
 
   --color-borde-claro: #555;
   --color-borde-oscuro: #aaa;

@@ -3,9 +3,8 @@ export default {
   name: "Header-dehome",
   methods: {
     irADocumentacion() {
-      this.$router.push('/documentacion');
+      this.$router.push("/documentacion");
     },
-
   },
 };
 </script>

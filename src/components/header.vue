@@ -8,27 +8,23 @@ export default {
       logo,
     };
   },
-  components: {
-  },
+  components: {},
   methods: {
     irAInicio() {
-      this.$router.push('/');
+      this.$router.push("/");
     },
     methods: {
-    irADocumentacion() {
-      this.$router.push('/documentacion');
+      irADocumentacion() {
+        this.$router.push("/documentacion");
+      },
     },
-
   },
-
-  }
-
 };
 </script>
 
 <template>
   <header class="header">
-   <div class="login-logo">
+    <div class="login-logo">
       <img :src="logo" alt="Icono de la aplicación" class="logo" @click="irAInicio" />
     </div>
     <!-- menú -->
@@ -36,7 +32,6 @@ export default {
       <router-link to="/"> Inicio </router-link>
       <router-link to="/documentacion"> Documentacion </router-link>
     </div>
-
   </header>
 </template>
 
@@ -61,5 +56,4 @@ export default {
   align-items: center;
   gap: 0.3em;
 }
-
 </style>
