@@ -1,59 +1,61 @@
 <script>
 import logo from "@/assets/img/MonyMontySinFondo3.png";
+import headerHomeView from "@/components/web/headerWeb.vue";
 
 export default {
-  name: "Header-principal de Monte Flor",
+  name: "HeaderPrincipal",
   data() {
     return {
       logo,
     };
   },
-  components: {},
+  components: {
+    headerHomeView,
+  },
   methods: {
     irAInicio() {
       this.$router.push("/");
     },
-    methods: {
-      irADocumentacion() {
-        this.$router.push("/documentacion");
-      },
+    irAMonymonty() {
+      this.$router.push("/");
     },
   },
 };
 </script>
 
 <template>
-  <header class="header">
-    <div class="login-logo">
-      <img :src="logo" alt="Icono de la aplicación" class="logo" @click="irAInicio" />
+  <!-- Header principal -->
+  <header class="flex items-center justify-around px-4 py-2 bg-white shadow">
+    <div class="flex items-center gap-6 cursor-pointer" @click="irAInicio">
+      <div>
+        <img :src="logo" alt="Icono de la aplicación" class="logo" />
+      </div>
+      <h1 class="text-xl font-bold">MonteFlor</h1>
     </div>
-    <!-- menú -->
-    <div class="menuDocument">
-      <router-link to="/"> Inicio </router-link>
-      <router-link to="/documentacion"> Documentacion </router-link>
+
+    <nav class="flex gap-6">
+      <a href="#" class="nav-item">MonyMonty</a>
+      <a href="#" class="nav-item">YMCA Santander </a>
+      <a href="#" class="nav-item">M & G</a>
+    </nav>
+
+    <!-- Botones con PrimeVue -->
+    <div class="flex gap-3">
+      <Button label="Iniciar Sesión" outlined @click="irAMonymonty" />
+      <Divider layout="vertical" />
+      <Button label="Registrarse" severity="primary" @click="irAMonymonty" />
     </div>
   </header>
+
+  <!-- Tab de Navegacion -->
+  <div>
+    <headerHomeView />
+  </div>
 </template>
 
 <style>
-/* Estilos para tu aplicación */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 4em;
-  padding: 0.3em 0.4em;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
 .logo {
   height: 3rem;
   cursor: pointer;
-}
-
-.menuDocument {
-  display: flex;
-  align-items: center;
-  gap: 0.3em;
 }
 </style>

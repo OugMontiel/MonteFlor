@@ -2,9 +2,8 @@
 import logo from "@/assets/img/MonyMontySinFondo3.png";
 import imgNosotros1 from "@/assets/img/nosotros-imagen1.svg";
 
-import headerHomeView from "@/components/web/headerWeb.vue";
+import HeaderPrincipal from "@/components/header.vue";
 import FooterView from "@/components/web/footer.vue";
-import iniciarSesionView from "@/components/web/iniciarSesionView.vue";
 
 import testimoniosView from "@/components/web/testimonios/testimoniosView.vue";
 
@@ -17,9 +16,8 @@ export default {
     };
   },
   components: {
-    headerHomeView,
+    HeaderPrincipal,
     FooterView,
-    iniciarSesionView,
     testimoniosView,
   },
   methods: {
@@ -31,14 +29,7 @@ export default {
 </script>
 
 <template>
-  <header class="headerHome">
-    <div class="login-logo">
-      <img :src="logo" alt="Icono de la aplicación" class="logo" @click="irAInicio" />
-    </div>
-
-    <headerHomeView />
-    <iniciarSesionView />
-  </header>
+  <HeaderPrincipal />
 
   <main class="main-container">
     <section id="inicio" class="inicio-hero">
@@ -102,8 +93,9 @@ export default {
       <p>Contenido de la sección Contacto.</p>
     </section>
 
-    <FooterView />
   </main>
+
+  <FooterView />
 </template>
 
 <style scoped>
