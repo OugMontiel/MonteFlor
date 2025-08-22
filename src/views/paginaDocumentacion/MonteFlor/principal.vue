@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "layaud de la documentacion Monte Flor",
+  name: "layaudDeLaDocumentacionMonteFlor",
 };
 </script>
 
