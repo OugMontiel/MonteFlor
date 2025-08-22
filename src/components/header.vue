@@ -48,7 +48,7 @@ function handleNavigation(navItem) {
 </script>
 
 <template>
-  <header class="p-3">
+  <header class="p-2">
     <!-- Header principal -->
     <div class="flex items-center justify-between w-full">
       <!-- Sección de Marca -->

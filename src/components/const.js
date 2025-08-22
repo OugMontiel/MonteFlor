@@ -5,9 +5,9 @@ import logoIMG from "@/assets/img/MonyMontySinFondo3.png";
 import logoIMonteFlor from "@/assets/img/MonyMontySinFondo3.png";
 
 const monymonty = {
-  name: "monymonty",
+  name: "MonyMonty",
   label: "Mony Monty",
-  route: "/monymonty",
+  route: "/MonyMonty",
   logo: {
     src: logoIMonyMonty,
     alt: "Logo de Mony Monty",
@@ -23,7 +23,7 @@ const monymonty = {
 const YMCA = {
   name: "ymca",
   label: "YMCA Santander",
-  route: "/ymca-santander",
+  route: "/YMCASantander",
   logo: {
     src: logoYMCA,
     alt: "Logo de YMCA Santander",
@@ -41,7 +41,7 @@ const Mg = {
 const MonteFlor = {
   name: "MonteFlor",
   label: "Monte Flor",
-  route: "/",
+  route: "MonteFlor",
   logo: {
     src: logoIMonteFlor,
     alt: "Logo de Monte Flor",

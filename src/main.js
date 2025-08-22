@@ -10,6 +10,7 @@ import 'primeicons/primeicons.css';
 // Componentes primevue
 import Button from "primevue/button";
 import Divider from "primevue/divider";
+import Card from "primevue/card";
 
 const app = createApp(App);
 
@@ -26,5 +27,6 @@ app.use(PrimeVue, {
 // Registrar Componentes primevue
 app.component("Button", Button);
 app.component("Divider", Divider);
+app.component("Card", Card);
 
 app.mount("#app");
