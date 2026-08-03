@@ -47,7 +47,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   height: 4em;
-  padding: 0.2em 0.2em;
+  padding: 0.3em 0.4em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
