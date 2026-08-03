@@ -5,112 +5,174 @@ import imgNosotros1 from "@/assets/img/nosotros-imagen1.svg";
 import headerHomeView from "@/components/web/headerWeb.vue";
 import FooterView from "@/components/web/footer.vue";
 import iniciarSesionView from "@/components/web/iniciarSesionView.vue";
-
 import testimoniosView from "@/components/web/testimonios/testimoniosView.vue";
 
 export default {
-  name: "Home-",
+  name: "HomeView",
   data() {
     return {
       logo,
       imgNosotros1,
+      pilares: [
+        {
+          titulo: "Educación",
+          texto: "Aprende finanzas personales con recursos claros, hábitos prácticos y contenidos pensados para la vida diaria.",
+        },
+        {
+          titulo: "Control",
+          texto: "Registra tus ingresos, gastos y metas para entender qué pasa con tu dinero antes de tomar decisiones.",
+        },
+        {
+          titulo: "Gestión",
+          texto: "Organiza tu presupuesto, identifica oportunidades de mejora y proyecta una ruta financiera más saludable.",
+        },
+      ],
     };
   },
   components: {
     headerHomeView,
     FooterView,
     iniciarSesionView,
-    testimoniosView
+    testimoniosView,
   },
   methods: {
     irAInicio() {
-      this.$router.push('/');
+      this.$router.push("/");
     },
-
-  }
+  },
 };
 </script>
 
 <template>
-  <header class="headerHome">
-    <div class="login-logo">
-      <img :src="logo" alt="Icono de la aplicación" class="logo" @click="irAInicio" />
-    </div>
+  <header class="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/90 px-4 py-3 shadow-sm backdrop-blur md:px-8">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4">
+      <button class="flex items-center" aria-label="Ir al inicio" @click="irAInicio">
+        <img :src="logo" alt="MonyMonty" class="h-10 w-auto cursor-pointer object-contain md:h-12" />
+      </button>
 
-    <headerHomeView />
-    <iniciarSesionView />
+      <div class="hidden md:block">
+        <headerHomeView />
+      </div>
+
+      <iniciarSesionView />
+    </div>
   </header>
 
-  <main class="main-container">
-
-    <section id="inicio" class="inicio-hero">
-
-      <div class="inicio-content">
-        <h1>MonyMonty</h1>
-        <p>Una forma inteligente de manejar tus finanzas</p>
-        <blockquote>"La riqueza consiste mucho más en disfrutar que en poseer". - Aristóteles</blockquote>
+  <main class="bg-[#f7f5f0] text-zinc-900">
+    <section id="inicio" class="hero-bg relative min-h-[calc(100vh-73px)] overflow-hidden text-white">
+      <div class="absolute inset-0 bg-zinc-950/55"></div>
+      <div class="relative mx-auto flex min-h-[calc(100vh-73px)] max-w-7xl items-center px-5 py-20 md:px-8">
+        <div class="max-w-3xl">
+          <p class="mb-4 inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-amber-200 backdrop-blur">
+            Finanzas personales simples
+          </p>
+          <h1 class="text-5xl font-black leading-tight text-amber-300 sm:text-6xl lg:text-7xl">
+            MonyMonty
+          </h1>
+          <p class="mt-6 max-w-2xl text-2xl font-semibold leading-snug text-white sm:text-4xl">
+            Una forma inteligente de manejar tus finanzas.
+          </p>
+          <blockquote class="mt-8 max-w-xl border-l-4 border-amber-300 pl-5 text-base leading-7 text-zinc-100 sm:text-lg">
+            "La riqueza consiste mucho más en disfrutar que en poseer". - Aristóteles
+          </blockquote>
+        </div>
       </div>
-
     </section>
 
-    <section id="nosotros" class="nosotros">
-
-      <div class="nosotros-content">
-
-        <div class="nosotros-titulo">
-          <h2>¿Por qué es importante la educación financiera?</h2>
-          <img :src="imgNosotros1" alt="Icono de la aplicación" class="titulo-image" />
+    <section id="nosotros" class="bg-white px-5 py-20 md:px-8 lg:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#f25c2f]">Nuestra razón</p>
+          <h2 class="mt-4 text-3xl font-black leading-tight text-zinc-900 sm:text-4xl lg:text-5xl">
+            ¿Por qué es importante la educación financiera?
+          </h2>
+          <img :src="imgNosotros1" alt="Personas aprendiendo finanzas" class="mx-auto mt-10 max-h-80 w-full object-contain" />
         </div>
 
-        <div class="nosotros-texto">
-          <h2>Estamos convencidos de que todos podemos crecer.</h2>
-          <p>MonyMonty nació de una necesidad personal: la falta de educación financiera en mi familia. Esta situación
-            se repite en muchas otras familias colombianas y latinoamericanas. La carencia de conocimientos financieros
-            puede limitar nuestras decisiones, llevarnos al endeudamiento y frenar nuestro desarrollo económico.</p>
+        <div class="rounded-lg border border-zinc-200 bg-[#faf8f3] p-6 shadow-sm md:p-10">
+          <h3 class="text-2xl font-extrabold leading-tight text-zinc-900 sm:text-3xl">
+            Estamos convencidos de que todos podemos crecer.
+          </h3>
+          <p class="mt-6 text-lg leading-8 text-zinc-700">
+            MonyMonty surge ante una necesidad clara: la falta de alfabetización financiera en los hogares colombianos y latinoamericanos.
+            La ausencia de estos conocimientos condiciona nuestras elecciones, facilita el sobreendeudamiento y frena el desarrollo personal
+            y colectivo.
+          </p>
+          <p class="mt-5 text-lg leading-8 text-zinc-700">
+            Nuestra misión es brindar herramientas accesibles para que más personas entiendan, organicen y tomen el control de sus finanzas.
+          </p>
         </div>
-
       </div>
-
     </section>
 
-    <section id="productos" class="producto">
-
-      <h2>¿Qué es MonyMonty?</h2>
-      <p>Una solución integral para tu bienestar financiero basada en tres pilares:</p>
-
-      <div class="producto-grid">
-
-        <div class="producto-card">
-          <h3><strong>Educación</strong></h3>
-          <p>Mejora tus conocimientos en finanzas personales con técnicas y recursos prácticos.</p>
+    <section id="productos" class="bg-[#2f2f2f] px-5 py-20 text-white md:px-8 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl">
+          <p class="text-sm font-bold uppercase tracking-[0.18em] text-amber-300">Producto</p>
+          <h2 class="mt-4 text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
+            ¿Qué es MonyMonty?
+          </h2>
+          <p class="mt-5 text-xl leading-8 text-zinc-200">
+            Una solución integral para tu bienestar financiero basada en tres pilares.
+          </p>
         </div>
 
-        <div class="producto-card">
-          <h3><strong>Control</strong></h3>
-          <p>Registra, visualiza y analiza tus finanzas personales con nuestra app intuitiva.</p>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <article
+            v-for="pilar in pilares"
+            :key="pilar.titulo"
+            class="rounded-lg border border-white/10 bg-white p-7 text-zinc-900 shadow-xl transition duration-200 hover:-translate-y-1 hover:shadow-amber-500/20"
+          >
+            <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-md bg-amber-300 text-xl font-black text-zinc-950">
+              {{ pilar.titulo.charAt(0) }}
+            </div>
+            <h3 class="text-2xl font-extrabold text-[#f25c2f]">{{ pilar.titulo }}</h3>
+            <p class="mt-4 text-base leading-7 text-zinc-700">{{ pilar.texto }}</p>
+          </article>
         </div>
 
-        <div class="producto-card">
-          <h3><strong>Gestión</strong></h3>
-          <p>Recibe asesoría personalizada de expertos que te ayudarán a planificar tu futuro financiero.</p>
-        </div>
-
+        <p class="mt-12 max-w-3xl text-xl font-semibold leading-8 text-amber-100">
+          Únete a nuestra comunidad y comienza a construir una vida financiera más saludable.
+        </p>
       </div>
-
-      <p class="mensaje-final">Únete a nuestra comunidad y comienza a construir una vida financiera más saludable.</p>
-
     </section>
 
-    <section id="clientes" class="clientes">
+    <section id="clientes" class="bg-white px-5 py-20 md:px-8 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#f25c2f]">Experiencias</p>
+          <h2 class="mt-4 text-3xl font-black text-zinc-900 sm:text-4xl lg:text-5xl">
+            Clientes satisfechos
+          </h2>
+        </div>
 
-      <h2>Clientes satisfechos </h2>
-
-      <testimoniosView />
+        <testimoniosView />
+      </div>
     </section>
 
-    <section id="contacto" class="contacto">
-      <h2>Contacto</h2>
-      <p>Contenido de la sección Contacto.</p>
+    <section id="contacto" class="bg-[#faf8f3] px-5 py-20 md:px-8 lg:py-28">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#f25c2f]">Contacto</p>
+          <h2 class="mt-4 text-3xl font-black leading-tight text-zinc-900 sm:text-4xl lg:text-5xl">
+            Da el primer paso hacia una mejor relación con tu dinero.
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-zinc-700">
+            Explora la aplicación, revisa la documentación o escríbenos para conocer cómo MonyMonty puede ayudarte a ordenar tus finanzas.
+          </p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <a href="#productos" class="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-amber-300">
+            <span class="text-sm font-bold uppercase tracking-[0.16em] text-zinc-500">Conoce</span>
+            <strong class="mt-3 block text-xl text-zinc-900">Nuestros pilares</strong>
+          </a>
+          <router-link to="/documentacion" class="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-amber-300">
+            <span class="text-sm font-bold uppercase tracking-[0.16em] text-zinc-500">Revisa</span>
+            <strong class="mt-3 block text-xl text-zinc-900">Documentación</strong>
+          </router-link>
+        </div>
+      </div>
     </section>
 
     <FooterView />
@@ -118,247 +180,10 @@ export default {
 </template>
 
 <style scoped>
-.headerHome {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.7rem;
-  background: var(--color-fondo-nav);
-}
-.logo {
-  height: 3rem;
-  cursor: pointer;
-}
-
-/* ------ inicio ------ */
-
-.main-container {
-  width: 100%;
-  background: #f9f9f9;
-}
-
-section {
-  max-width: 100%;
-  padding: 4em 2em;
-  background: white;
-}
-
-.inicio-hero {
-  /* background: linear-gradient(135deg, #54b6ff 0%, #4096ee 100%);*/
+.hero-bg {
   background-image: url("@/assets/img/fondo-inicio.jpg");
-  background-color: rgba(0, 0, 0, 0.5);
-  background-blend-mode: overlay;
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
-  color: white;
-  text-align: center;
-  padding: 4em 2em;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 200px;
-
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-.inicio-hero h1 {
-  font-size: 4rem;
-  margin-bottom: 0.5em;
-  color: #ffae2b;
-}
-
-.inicio-hero p {
-  font-size: 3rem;
-  margin-bottom: 1em;
-  color: #ffffff;
-}
-
-.inicio-hero blockquote {
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #e0e0e0;
-}
-
-/* ------ nosotros ------ */
-
-.nosotros-content {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 100px;
-  gap: 1em;
-  margin: 1em 0;
-  justify-content: center;
-}
-
-.nosotros-titulo,
-.nosotros-texto {
-  flex: 1 1 200px;
-}
-
-.nosotros-titulo h2 {
-  font-size: 40px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #333;
-}
-
-.titulo-image {
-  height: 300px;
-}
-
-.nosotros-texto h2 {
-  font-size: 40px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: justify;
-  margin-bottom: 20px;
-}
-
-.nosotros-texto p {
-  font-size: 25px;
-  line-height: 1.6;
-  text-align: justify;
-  color: #444;
-}
-
-/* ------ producto ------ */
-
-.producto {
-  background: linear-gradient(135deg, #ffd154 0%, #b7b9b4 100%);
-  padding: 200px;
-}
-
-.producto h2 {
-  font-size: 45px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.producto p {
-  font-size: 30px;
-}
-
-.producto-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5em;
-  margin: 2em 0;
-  justify-content: center;
-}
-
-.producto-card {
-  flex: 1 1 300px;
-  background: #f4f4f4;
-  padding: 70px;
-  border-radius: 12px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-}
-
-.producto-card:hover {
-  transform: translateY(-6px);
-}
-
-.producto-card h3 {
-  font-size: 30px;
-  margin-bottom: 0.8em;
-  color: #e8ac16;
-}
-
-.producto-card p {
-  font-size: 20px;
-  text-align: left;
-}
-
-.mensaje-final {
-  text-align: center;
-  margin-top: 2em;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #000000;
-}
-
-/* ------ clientes ------ */
-
-.clientes h2 {
-  font-size: 50px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: center;
-  margin: 30px;
-  padding: 10px;
-}
-
-
-
-
-/* Responsive */
-/* Extra pequeño: móviles pequeños (xs) */
-@media (max-width: 575.98px) {
-  section {
-    max-width: 100%;
-    padding: 1em 2em;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-
-  .inicio-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    max-width: 100%;
-  }
-
-  .inicio-content h1 {
-    font-size: 35px;
-  }
-
-  .inicio-content p {
-    font-size: 30px;
-  }
-
-  .inicio-content blockquote {
-    font-size: 20px;
-
-  }
-
-  .nosotros-content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .producto-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .hero h1 {
-    font-size: 2.3rem;
-  }
-
-}
-
-/* Pequeño: móviles medianos y grandes (sm) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  
-}
-
-/* Mediano: tablets (md) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  
-}
-
-/* Grande: laptops (lg) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .login-logo img.logo {
-    height: 3rem;
-  }
-}
-
-/* Extra grande: pantallas grandes (xl) */
-@media (min-width: 1200px) and (max-width: 1399.98px) {}
-
-/* XXL: monitores muy grandes */
-@media (min-width: 1400px) {}
 </style>

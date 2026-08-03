@@ -3,52 +3,34 @@ export default {
   name: "Header-dehome",
   methods: {
     irADocumentacion() {
-      this.$router.push('/documentacion');
+      this.$router.push("/documentacion");
     },
-
   },
 };
 </script>
 
 <template>
-  <!-- menú -->
-  <div class="container-links">
-    <a class="linksNav" href="#inicio">Inicio</a>
-    <span class="separator">|</span>
-    <a class="linksNav" href="#nosotros">Nosotros</a>
-    <span class="separator">|</span>
-    <a class="linksNav" href="#productos">Productos</a>
-    <span class="separator">|</span>
-    <a class="linksNav" href="#clientes">Clientes</a>
-    <span class="separator">|</span>
-    <a class="linksNav" href="#contacto">Contacto</a>
-    <span class="separator">|</span>
-    <a class="linksNav" @click="irADocumentacion">Documentacion</a>
-  </div>
+  <nav class="flex items-center gap-1 text-base font-medium">
+    <a href="#inicio" class="text-gray-500 no-underline transition-colors duration-200 hover:text-amber-400 focus:outline-none"> Inicio </a>
+    <span class="text-gray-500 select-none pointer-events-none px-0.5">|</span>
+
+    <a href="#nosotros" class="text-gray-500 no-underline transition-colors duration-200 hover:text-amber-400 focus:outline-none">
+      Nosotros
+    </a>
+    <span class="text-gray-500 select-none pointer-events-none px-0.5">|</span>
+
+    <a href="#productos" class="text-gray-500 no-underline transition-colors duration-200 hover:text-amber-400 focus:outline-none">
+      Productos
+    </a>
+    <span class="text-gray-500 select-none pointer-events-none px-0.5">|</span>
+
+    <a href="#clientes" class="text-gray-500 no-underline transition-colors duration-200 hover:text-amber-400 focus:outline-none">
+      Clientes
+    </a>
+    <span class="text-gray-500 select-none pointer-events-none px-0.5">|</span>
+
+    <a href="#contacto" class="text-gray-500 no-underline transition-colors duration-200 hover:text-amber-400 focus:outline-none">
+      Contacto
+    </a>
+  </nav>
 </template>
-
-<style>
-/* Estilos para tu aplicación */
-.container-links {
-  display: flex;
-  align-items: center;
-  gap: 0.3em;
-}
-
-.linksNav:hover {
-  color: var(--color-acento);
-}
-
-.separator {
-  color: var(--texto-primario);
-  padding: 0 0.3em;
-  user-select: none;
-  pointer-events: none;
-}
-
-.separator:hover {
-  padding: 0 0.3em;
-  user-select: none;
-  pointer-events: none;
-}
-</style>

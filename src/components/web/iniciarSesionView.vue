@@ -10,7 +10,7 @@ export default {
   },
   methods: {
     irAMonymonty() {
-      this.$router.push('/');
+      window.location.href = 'http://localhost:5174/'
     },
 
   }
@@ -20,8 +20,7 @@ export default {
 
 <template>
   <div class="container-button">
-      <button class="button-login" @click="irAMonymonty">Iniciar Sesion</button>
-      <button class="button-registrar" @click="irAMonymonty">Registrarse</button>
+      <button class="button-MonyMonty" @click="irAMonymonty">Abrir aplicativo web</button>
   </div>
 
 </template>
@@ -33,41 +32,21 @@ export default {
   justify-content: center;
 }
 
-.button-login {
-  background-color: #bcc0c3; /* Azul-gris suave */
-  color: #000000;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: var(--texto-tamano-boton);
-  
-}
-
-.button-login:hover {
-  background-color: #a3a6a9;
-  transition:
-    background-color 0.3s,
-    color 0.2s;
-}
-
-.button-registrar {
+.button-MonyMonty {
   cursor: pointer;
   color: var(--texto-primario);
-  padding: 1em 1em;
+  padding: 0.1em 1em;
   font-size: var(--texto-tamano-boton);
   background: var(--color-fondo-boton-claro);
   border-radius: 5px;
-  margin: 0 0.2em;
+  margin: 0 0.5em;
   transition:
     background-color 0.3s,
     color 0.2s;
 }
 
-.button-registrar:hover {
-  
-  color: var(--texto-claro);
+.button-MonyMonty:hover {  
+  color: var(--texto-primario);
   background: var(--color-acento);
-
 }
 </style>
