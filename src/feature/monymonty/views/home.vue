@@ -16,7 +16,6 @@ export default {
 </script>
 
 <template>
-
   <main class="main-container">
     <section id="inicio" class="inicio-hero">
       <div class="inicio-content">
@@ -78,9 +77,7 @@ export default {
       <h2>Contacto</h2>
       <p>Contenido de la sección Contacto.</p>
     </section>
-
   </main>
-
 </template>
 
 <style scoped>
