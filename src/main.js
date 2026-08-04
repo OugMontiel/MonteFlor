@@ -5,7 +5,7 @@ import App from "./App.vue";
 import router from "./router";
 import PrimeVue from "primevue/config";
 import Aura from "@primeuix/themes/aura";
-import 'primeicons/primeicons.css';
+import "primeicons/primeicons.css";
 
 // Componentes primevue
 import Button from "primevue/button";
@@ -19,14 +19,14 @@ app.use(PrimeVue, {
   theme: {
     preset: Aura,
     options: {
-      darkModeSelector: '.app-dark'
+      darkModeSelector: ".app-dark",
     },
   },
 });
 
 // Registrar Componentes primevue
-app.component("Button", Button);
-app.component("Divider", Divider);
-app.component("Card", Card);
+app.component("PrimeButton", Button);
+app.component("PrimeDivider", Divider);
+app.component("PrimeCard", Card);
 
 app.mount("#app");
