@@ -27,8 +27,8 @@ app.use(PrimeVue, {
 });
 
 // Registrar Componentes primevue
-app.component("Button", Button);
-app.component("Divider", Divider);
-app.component("Card", Card);
+app.component("PrimeButton", Button);
+app.component("PrimeDivider", Divider);
+app.component("PrimeCard", Card);
 
 app.mount("#app");
