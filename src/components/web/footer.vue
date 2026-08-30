@@ -24,9 +24,20 @@ export default {
 <template>
   <!-- pie de página -->
   <footer>
-    <h3>¡Sé parte de esta transformación!</h3>
+    <h3
+      v-motion
+      :initial="{opacity: 0, y: 20}"
+      :visible-once="{opacity: 1, y: 0, transition: {duration: 500}}"
+    >
+      ¡Sé parte de esta transformación!
+    </h3>
     <div class="pie">
-      <div class="network">
+      <div
+        class="network"
+        v-motion
+        :initial="{opacity: 0, y: 20}"
+        :visible-once="{opacity: 1, y: 0, transition: {duration: 500, delay: 100}}"
+      >
         <h4 class="network-h4">Contactanos</h4>
         <p class="network-p">Síguenos en redes sociales</p>
         <div class="network-card">
@@ -48,7 +59,12 @@ export default {
         </div>
       </div>
 
-      <div class="paginas">
+      <div
+        class="paginas"
+        v-motion
+        :initial="{opacity: 0, y: 20}"
+        :visible-once="{opacity: 1, y: 0, transition: {duration: 500, delay: 200}}"
+      >
         <h4 class="paginas-h4">Páginas</h4>
         <p class="paginas-p">Puedes encontrar más de nosotros en:</p>
 
@@ -62,128 +78,160 @@ export default {
         </ul>
       </div>
 
-      <div class="agenda">
+      <div
+        class="agenda"
+        v-motion
+        :initial="{opacity: 0, y: 20}"
+        :visible-once="{opacity: 1, y: 0, transition: {duration: 500, delay: 300}}"
+      >
         <h4 class="agenda-h4">Agenda tu cita</h4>
         <p class="agenda-p">Si quieres ser parte de nuestra comunidad, agenda tu cita y comienza a transformar tu vida financiera.</p>
 
         <form class="agenda-formulario" @submit.prevent="subscribe">
-          <input class="p-2 rounded-l-full" placeholder="Tu correo electrónico" type="email" required />
+          <input class="agenda-input" placeholder="Tu correo electrónico" type="email" required />
           <button class="btn-suscribirse" type="submit">Suscribirse</button>
         </form>
       </div>
     </div>
 
-    <p>&copy; 2025 MonyMonty</p>
+    <p class="footer-copy">&copy; 2025 MonyMonty</p>
   </footer>
 </template>
 
 <style>
 footer {
-  padding: 2em 0;
-  background-color: var(--color-fondo-nav);
+  padding: 3em 1.5em 2em;
+  background: var(--color-fondo-nav);
   text-align: center;
+}
+
+footer h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+  color: var(--texto-primario);
 }
 
 .pie {
   display: flex;
-  justify-content: space-around;
-  margin: 2em 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2.5em 0;
+  text-align: left;
 }
 
-.pie div {
-  max-width: 300px;
+.pie > div {
+  flex: 1 1 260px;
+  max-width: 320px;
 }
 
 .pie h4 {
   margin-bottom: 0.5em;
+  color: var(--texto-primario);
 }
 
 .pie p {
   margin: 0.5em 0;
+  color: var(--texto-secundario);
+}
+
+footer ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+footer a {
+  color: var(--texto-secundario);
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--color-acento);
 }
 
 footer form {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 0.75rem;
 }
 
-footer input {
+.agenda-input {
   flex: 1;
+  padding: 0.65rem 1rem;
+  border-radius: 999px 0 0 999px;
+  border: 1px solid var(--borde-claro);
+  background: var(--color-superficie);
+  color: var(--texto-primario);
 }
 
-footer button {
-  margin-left: 0.5em;
+.agenda-input:focus {
+  outline: none;
+  border-color: var(--color-acento);
 }
 
 .network-card {
   display: flex;
   gap: 1rem;
-  justify-content: center;
   align-items: center;
 }
 
 .icon-network {
-  width: 30px;
+  width: 32px;
+  transition: transform 0.25s ease;
+}
+
+.icon-network:hover {
+  transform: translateY(-4px) scale(1.1);
 }
 
 .btn-suscribirse {
-  background-color: #1877f2;
+  background: var(--gradiente-acento);
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  border: 1px solid #1666cf;
+  padding: 0.65rem 1.4rem;
+  border-radius: 0 999px 999px 0;
   font-weight: bold;
   cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-suscribirse:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-acento);
+}
+
+.footer-copy {
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
 }
 
 /* Extra pequeño: móviles pequeños (xs) */
 @media (max-width: 575.98px) {
   .pie {
-    display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 2rem;
   }
 
-  .network-h2 {
-    font-size: 8px;
+  .network-card {
+    justify-content: center;
   }
 
-  .network-p {
-    font-size: 11px;
+  footer form {
+    justify-content: center;
+  }
+
+  .network-p,
+  .paginas-p,
+  .agenda-p {
+    font-size: 13px;
   }
 
   .icon-network {
-    width: 15px;
+    width: 24px;
   }
-
-  .paginas-p {
-    font-size: 11px;
-  }
-
-  .agenda-p {
-    font-size: 11px;
-  }
-}
-
-/* Pequeño: móviles medianos y grandes (sm) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-}
-
-/* Mediano: tablets (md) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-}
-
-/* Grande: laptops (lg) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-}
-
-/* Extra grande: pantallas grandes (xl) */
-@media (min-width: 1200px) and (max-width: 1399.98px) {
-}
-
-/* XXL: monitores muy grandes */
-@media (min-width: 1400px) {
 }
 </style>

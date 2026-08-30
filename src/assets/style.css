@@ -12,6 +12,8 @@
   /* 🎨 Paleta base */
   --color-acento: #f25c2f; /* Principal: botones, enlaces, énfasis */
   --color-acento-suave: #ff9b73; /* Hover o elementos suaves */
+  --color-acento-fuerte: #d94a20; /* Texto/iconos sobre fondos claros con más contraste */
+  --gradiente-acento: linear-gradient(135deg, #f25c2f 0%, #ff9b73 100%);
   --color-oscuro: #2f2f2f; /* Texto principal y navbar */
   --color-claro: #f9f9f9; /* Fondo general */
   --color-neutro: #cccccc; /* Bordes, desactivados, secundarios */
@@ -25,6 +27,8 @@
   --color-fondo: var(--color-claro);
   --color-fondo-nav: var(--color-claro);
   --color-fondo-hover: #e9e5e5;
+  --color-fondo-glass: rgba(249, 249, 249, 0.75);
+  --color-superficie: #ffffff;
 
   /* 🔲 Botones */
   --color-fondo-boton-claro: var(--color-acento-suave);
@@ -33,9 +37,17 @@
   --color-fondo-boton-oscuro-hover: #444;
 
   /* 📏 Bordes y contenedores */
+  --borde-radio-sm: 8px;
   --borde-radio: 12px;
+  --borde-radio-lg: 20px;
   --borde-claro: var(--color-neutro);
   --borde-oscuro: ;
+
+  /* 🌤️ Elevación */
+  --sombra-sm: 0 1px 3px rgba(20, 15, 10, 0.08);
+  --sombra-md: 0 8px 24px rgba(20, 15, 10, 0.1);
+  --sombra-lg: 0 20px 45px rgba(20, 15, 10, 0.14);
+  --sombra-acento: 0 12px 30px rgba(242, 92, 47, 0.28);
 
   /* 🔤 Tipografía */
   --fuente-principal: "Segoe UI", sans-serif;
@@ -53,20 +65,19 @@
   -moz-osx-font-smoothing: grayscale; /* Suavizado de fuentes en macOS */
 }
 
-[data-theme="dark"] {
+[data-theme="dark"],
+.app-dark {
   /* Colores del tema oscuro */
-  --color-fondo: #242424; /* Color de fondo principal */
-  --texto-primario: #ffffff; /* Color de texto principal */
-  --color-fondo-nav: #333; /* Color de fondo de la barra de navegación */
-  --color-fondo-hover: #555; /* Color de fondo al pasar el mouse */
-
   --color-dominante: #1c1c1c;
   --color-secundario: #ffffff;
   --color-acento: #f25c2f;
+  --color-acento-fuerte: #ff8f5c;
 
   --color-fondo: #121212;
   --color-fondo-nav: #1e1e1e;
   --color-fondo-hover: #2a2a2a;
+  --color-fondo-glass: rgba(18, 18, 18, 0.7);
+  --color-superficie: #1c1c1c;
   --color-fondo-boton-claro: #2f2f2f;
   --color-fondo-boton-claro-hover: #3a3a3a;
   --color-fondo-boton-oscuro: #ffffff;
@@ -79,6 +90,11 @@
 
   --color-borde-claro: #555;
   --color-borde-oscuro: #aaa;
+
+  --sombra-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --sombra-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --sombra-lg: 0 20px 45px rgba(0, 0, 0, 0.5);
+  --sombra-acento: 0 12px 30px rgba(242, 92, 47, 0.35);
 }
 
 /* Estilos globales */
@@ -104,4 +120,51 @@ li {
 /* Estilos para enlaces */
 a {
   text-decoration: none; /* Eliminar subrayado de enlaces */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-fondo);
+  color: var(--texto-primario);
+}
+
+/* Animaciones reutilizables */
+@keyframes flotar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes rebotar {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+.flotando {
+  animation: flotar 5s ease-in-out infinite;
+}
+
+.rebotando {
+  animation: rebotar 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flotando,
+  .rebotando {
+    animation: none;
+  }
 }

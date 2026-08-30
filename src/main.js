@@ -6,6 +6,7 @@ import router from "./router";
 import PrimeVue from "primevue/config";
 import Aura from "@primeuix/themes/aura";
 import 'primeicons/primeicons.css';
+import {MotionPlugin} from "@vueuse/motion";
 
 // Componentes primevue
 import Button from "primevue/button";
@@ -15,6 +16,7 @@ import Card from "primevue/card";
 const app = createApp(App);
 
 app.use(router);
+app.use(MotionPlugin);
 app.use(PrimeVue, {
   theme: {
     preset: Aura,
