@@ -2,8 +2,8 @@ import EnConstruccion from "../../views/EnConstruccion.vue";
 
 const ymcaSantanderRoutes = [
   {
-    path: "/ymca-santander",
-    name: "ymca-santander",
+    path: "/YMCASantander",
+    name: "YMCASantander",
     component: EnConstruccion,
   },
 ];

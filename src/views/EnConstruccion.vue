@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8 text-center">
     <!-- Card principal -->
-    <Card class="w-full max-w-md shadow-lg rounded-2xl">
+    <PrimeCard class="w-full max-w-md shadow-lg rounded-2xl">
       <template #title>
         🚧 Página en Construcción 🚧
       </template>
@@ -20,13 +20,13 @@
         />
 
         <!-- Botón para volver al inicio -->
-        <Button
+        <PrimeButton
           label="Volver al inicio"
           icon="pi pi-home"
           class="p-button-success"
           @click="$router.push('/')"
         />
       </template>
-    </Card>
+    </PrimeCard>
   </div>
 </template>

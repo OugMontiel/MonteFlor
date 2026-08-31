@@ -39,6 +39,25 @@ function enviarContacto() {
   contactoEnviado.value = true;
   formularioContacto.value = {nombre: "", correo: "", mensaje: ""};
 }
+
+// Inclinación 3D de las tarjetas de producto siguiendo el cursor
+function inclinarTarjeta(event) {
+  const tarjeta = event.currentTarget;
+  const rect = tarjeta.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  const rotarX = ((y / rect.height - 0.5) * -14).toFixed(2);
+  const rotarY = ((x / rect.width - 0.5) * 14).toFixed(2);
+
+  tarjeta.style.setProperty("--rotar-x", `${rotarX}deg`);
+  tarjeta.style.setProperty("--rotar-y", `${rotarY}deg`);
+}
+
+function restablecerTarjeta(event) {
+  const tarjeta = event.currentTarget;
+  tarjeta.style.setProperty("--rotar-x", "0deg");
+  tarjeta.style.setProperty("--rotar-y", "0deg");
+}
 </script>
 
 <template>
@@ -111,8 +130,10 @@ function enviarContacto() {
           :key="pilar.titulo"
           class="producto-card"
           v-motion
-          :initial="{opacity: 0, y: 40}"
-          :visible-once="{opacity: 1, y: 0, transition: {duration: 500, delay: index * 150}}"
+          :initial="{opacity: 0, y: 40, rotateX: -20}"
+          :visible-once="{opacity: 1, y: 0, rotateX: 0, transition: {duration: 500, delay: index * 150}}"
+          @mousemove="inclinarTarjeta"
+          @mouseleave="restablecerTarjeta"
         >
           <div class="producto-icono">
             <i :class="pilar.icon"></i>
@@ -340,8 +361,23 @@ section {
 /* ------ producto ------ */
 
 .producto {
-  background: linear-gradient(135deg, #ffd154 0%, #b7b9b4 100%);
+  position: relative;
+  background: linear-gradient(120deg, #ffd154 0%, #f7b571 35%, #b7b9b4 100%);
+  background-size: 220% 220%;
+  animation: producto-gradiente 12s ease infinite;
   padding: 5rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+@keyframes producto-gradiente {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .producto h2 {
@@ -359,48 +395,75 @@ section {
   gap: 1.5em;
   margin: 2.5em 0;
   justify-content: center;
+  perspective: 1200px;
 }
 
 .producto-card {
+  --rotar-x: 0deg;
+  --rotar-y: 0deg;
   flex: 1 1 300px;
   max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   background: var(--color-superficie);
   padding: 2.5rem 2rem;
   border-radius: var(--borde-radio-lg);
   box-shadow: var(--sombra-md);
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rotar-x)) rotateY(var(--rotar-y)) translateY(0) scale(1);
   transition:
-    transform 0.25s ease,
+    transform 0.2s ease-out,
     box-shadow 0.25s ease;
 }
 
 .producto-card:hover {
-  transform: translateY(-8px);
+  transform: perspective(900px) rotateX(var(--rotar-x)) rotateY(var(--rotar-y)) translateY(-10px) scale(1.04);
   box-shadow: var(--sombra-acento);
 }
 
 .producto-icono {
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 3.5rem;
+  height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
   background: var(--gradiente-acento);
   color: #ffffff;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 1.25rem;
+  transform: translateZ(30px);
+  transition: transform 0.25s ease;
+}
+
+.producto-card:hover .producto-icono {
+  transform: translateZ(30px) rotate(-10deg) scale(1.1);
 }
 
 .producto-card h3 {
   font-size: 1.5rem;
   margin-bottom: 0.6em;
   color: var(--color-acento-fuerte);
+  transform: translateZ(20px);
 }
 
 .producto-card p {
   font-size: 1.05rem;
-  text-align: left;
+  text-align: center;
   color: var(--texto-secundario);
+  transform: translateZ(15px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .producto {
+    animation: none;
+  }
+
+  .producto-card {
+    transition: none;
+  }
 }
 
 .mensaje-final {

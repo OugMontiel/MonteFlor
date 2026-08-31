@@ -94,7 +94,7 @@ export default {
       </div>
     </div>
 
-    <p class="footer-copy">&copy; 2025 MonyMonty</p>
+    <p class="footer-copy">&copy; 2026 MonyMonty</p>
   </footer>
 </template>
 

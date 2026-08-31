@@ -3,17 +3,24 @@ import {createRouter, createWebHistory} from "vue-router";
 // Rutas Principales
 import monteFlorRoutes from "../feature/monteFlor/routerMonteFlor.js";
 import monyMontyRoutes from "../feature/monymonty/routerMonyMonty.js";
-//import mgRoutes from "../feature/mg/routerMg.js";
+import mgRoutes from "../feature/mg/routerMg.js";
+import ymcaSantanderRoutes from "../feature/ymca/routerYmca.js";
 //import ymcaSantanderRoutes from "../feature/ymca/routerYmca.js";
 
+const [layoutRoute] = monteFlorRoutes;
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    ...monteFlorRoutes,
-    ...monyMontyRoutes,
-    //...ymcaSantanderRoutes,
-    //...mgRoutes,
+    {
+      ...layoutRoute,
+      redirect: {name: "monymonty"},
+      children: [
+        ...monyMontyRoutes,
+        ...mgRoutes,
+        ...ymcaSantanderRoutes,
+      ],
+    },
   ],
 });
 

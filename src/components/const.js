@@ -41,7 +41,7 @@ const Mg = {
 const MonteFlor = {
   name: "MonteFlor",
   label: "Monte Flor",
-  route: "MonteFlor",
+  route: "/",
   logo: {
     src: logoIMonteFlor,
     alt: "Logo de Monte Flor",

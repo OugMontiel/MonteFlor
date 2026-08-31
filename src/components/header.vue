@@ -1,5 +1,5 @@
 <script setup>
-import {useRouter} from "vue-router";
+import {useRouter, useRoute} from "vue-router";
 import {ref, computed, onMounted, onBeforeUnmount, watch} from "vue";
 
 import {NavConstante} from "./const.js";
@@ -9,8 +9,23 @@ defineOptions({
 });
 
 const router = useRouter();
+const route = useRoute();
 
-const SeleccionNav = ref("MonteFlor");
+function navKeyParaRuta(path) {
+  const entrada = Object.entries(NavConstante).find(
+    ([, val]) => val.route && val.route.replace(/^\//, "").toLowerCase() === path.replace(/^\//, "").toLowerCase()
+  );
+  return entrada ? entrada[0] : "monymonty";
+}
+
+const SeleccionNav = ref(navKeyParaRuta(route.path));
+
+watch(
+  () => route.path,
+  (nuevaRuta) => {
+    SeleccionNav.value = navKeyParaRuta(nuevaRuta);
+  }
+);
 
 const logoSrc = computed(() => NavConstante[SeleccionNav.value].logo.src);
 const logoAlt = computed(() => NavConstante[SeleccionNav.value].logo.alt);
@@ -138,7 +153,6 @@ onBeforeUnmount(() => {
         <div class="flex-shrink-0">
           <img :src="logoSrc" :alt="logoAlt" class="logo transition-transform duration-300 group-hover:scale-105" loading="lazy" />
         </div>
-        <h1 class="text-xl font-bold sm:text-2xl">{{ Name }}</h1>
       </div>
 
       <!-- Navegación de escritorio -->
@@ -150,9 +164,9 @@ onBeforeUnmount(() => {
 
       <!-- Botones con PrimeVue (escritorio) -->
       <div class="hidden md:flex items-center p-2 gap-1">
-        <Button label="Iniciar Sesión" outlined @click="irAInicio" />
-        <Divider layout="vertical" />
-        <Button :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'" outlined @click="toggleTheme" :title="isDark ? 'Tema claro' : 'Tema oscuro'" />
+        <PrimeButton label="Iniciar Sesión" outlined @click="irAInicio" />
+        <PrimeDivider layout="vertical" />
+        <PrimeButton :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'" outlined @click="toggleTheme" :title="isDark ? 'Tema claro' : 'Tema oscuro'" />
       </div>
 
       <!-- Botón de menú móvil -->
@@ -171,7 +185,7 @@ onBeforeUnmount(() => {
     <div class="hidden md:flex items-center gap-2 px-2 pb-1">
       <template v-for="(tab, index) in currentTabs" :key="tab.id">
         <a class="linksNav" :class="{'linksNav-active': tabActivo === tab.id}" :href="`#${tab.id}`" @click="irATab(tab.id)">{{ tab.label }}</a>
-        <Divider layout="vertical" v-if="index < currentTabs.length - 1" />
+        <PrimeDivider layout="vertical" v-if="index < currentTabs.length - 1" />
       </template>
     </div>
 
@@ -195,8 +209,8 @@ onBeforeUnmount(() => {
         <div class="menu-movil-divisor"></div>
 
         <div class="flex items-center gap-2">
-          <Button class="flex-1" label="Iniciar Sesión" outlined @click="irAInicio" />
-          <Button :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'" outlined @click="toggleTheme" :title="isDark ? 'Tema claro' : 'Tema oscuro'" />
+          <PrimeButton class="flex-1" label="Iniciar Sesión" outlined @click="irAInicio" />
+          <PrimeButton :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'" outlined @click="toggleTheme" :title="isDark ? 'Tema claro' : 'Tema oscuro'" />
         </div>
       </div>
     </Transition>
