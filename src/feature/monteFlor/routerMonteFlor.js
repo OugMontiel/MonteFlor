@@ -1,14 +1,24 @@
 import Home from "./views/home.vue";
+import HomeMonyMonty from "../monymonty/views/home.vue";
 
 const monteFlorRoutes = [
   {
     path: "/",
-    name: "home",
     component: Home,
     children: [
       {
         path: "",
-        redirect: "/MonyMonty",
+        name: "home",
+        component: HomeMonyMonty,
+      },
+      {
+        path: "monymonty",
+        name: "monymonty",
+        component: HomeMonyMonty,
+      },
+      {
+        path: "MonyMonty",
+        redirect: "/monymonty",
       },
     ],
   },
