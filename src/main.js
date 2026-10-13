@@ -1,3 +1,5 @@
+// Tokens de Diseño MonyMonty
+import "@ougmontiel/monymonty-tokens/build/web/MonyMontyStyle.css";
 import "./assets/main.css";
 
 import {createApp} from "vue";
