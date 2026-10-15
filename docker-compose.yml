@@ -1,0 +1,69 @@
+services:
+  monteflor_prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    image: monteflor-prod:latest
+    container_name: monteflor_prod
+    restart: unless-stopped
+
+    # ============================================================================
+    # PRINCIPIOS DE MÍNIMO PRIVILEGIO Y PROTECCIÓN DE CONTENEDOR
+    # ============================================================================
+    user: "101:101"
+    read_only: true
+    security_opt:
+      - "no-new-privileges:true"
+    cap_drop:
+      - ALL
+
+    # Sistemas de archivos volátiles requeridos para funcionamiento en modo sólo lectura
+    tmpfs:
+      - /tmp:size=32M,uid=101,gid=101,mode=1777
+      - /var/run:size=16M,uid=101,gid=101,mode=0755
+      - /var/cache/nginx:size=64M,uid=101,gid=101,mode=0755
+
+    # ============================================================================
+    # EXPOSICIÓN INTERNA:
+    # Se expone únicamente en la red interna del proxy inverso para forzar el paso
+    # obligatorio por TLS/certificados y controles de seguridad.
+    # ============================================================================
+    expose:
+      - "8080"
+
+    # En caso de requerir acceso directo desde el host local (sin salir a internet):
+    # ports:
+    #   - "127.0.0.1:8080:8080"
+
+    networks:
+      proxy:
+        aliases:
+          - monteflor-prod
+
+    # Verificación de salud interna sin dependencias de red (sin curl, wget ni ping)
+    healthcheck:
+      test: ["CMD-SHELL", "pidof nginx || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+        reservations:
+          cpus: "0.10"
+          memory: 64M
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  proxy:
+    external: true
