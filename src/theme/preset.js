@@ -2,85 +2,81 @@ import {definePreset} from "@primeuix/themes";
 import Aura from "@primeuix/themes/aura";
 
 /**
- * Preset de tema personalizado para MonteFlor basado en Aura.
- * Paleta Primaria: Verde salvia y esmeralda orgánico con tecnología limpia.
- * Superficies: Tonos cálidos suaves (stone/zinc) para un look editorial premium.
- * Redondeo unificado: Escala generosa para un diseño suave y moderno.
+ * Preset MonyMonty para PrimeVue v4 basado en Aura.
+ * variables y tokens de diseño de MonyMonty.
  */
-const MonteFlorPreset = definePreset(Aura, {
+const MonyMontyPreset = definePreset(Aura, {
   primitive: {
     borderRadius: {
       none: "0",
-      xs: "4px",
-      sm: "8px",
-      md: "12px",
-      lg: "16px",
-      xl: "20px",
-    },
-    // Verde orgánico sofisticado para MonteFlor
-    monteflor: {
-      50: "#f3f8f5",
-      100: "#e2eee6",
-      200: "#c7dfd2",
-      300: "#a0c7b4",
-      400: "#74a991",
-      500: "#4f8d73",
-      600: "#3d725d",
-      700: "#335c4c",
-      800: "#2b4a3e",
-      900: "#253e35",
-      950: "#12221c",
+      xs: "var(--radius-sm)",
+      sm: "var(--radius-sm)",
+      md: "var(--radius-md)",
+      lg: "var(--radius-lg)",
+      xl: "var(--radius-xl)",
     },
   },
   semantic: {
     primary: {
-      50: "{monteflor.50}",
-      100: "{monteflor.100}",
-      200: "{monteflor.200}",
-      300: "{monteflor.300}",
-      400: "{monteflor.400}",
-      500: "{monteflor.500}",
-      600: "{monteflor.600}",
-      700: "{monteflor.700}",
-      800: "{monteflor.800}",
-      900: "{monteflor.900}",
-      950: "{monteflor.950}",
+      50: "var(--color-theme-light-brand-tint)",
+      100: "var(--color-theme-light-brand-tint)",
+      200: "var(--color-theme-light-brand-soft)",
+      300: "var(--color-theme-light-brand-soft)",
+      400: "var(--color-theme-light-brand)",
+      500: "var(--color-brand-primary)",
+      600: "var(--color-brand-primary-strong)",
+      700: "var(--color-theme-light-brand-strong)",
+      800: "var(--color-theme-light-brand-ink)",
+      900: "var(--color-theme-light-brand-ink)",
+      950: "var(--color-theme-dark-brand-tint)",
     },
     colorScheme: {
       light: {
+        primary: {
+          color: "var(--color-brand-primary)",
+          contrastColor: "var(--color-text-on-brand)",
+          hoverColor: "var(--color-brand-primary-strong)",
+          activeColor: "var(--color-theme-light-brand-ink)",
+        },
         surface: {
-          0: "#ffffff",
-          50: "{stone.50}",
-          100: "{stone.100}",
-          200: "{stone.200}",
-          300: "{stone.300}",
-          400: "{stone.400}",
-          500: "{stone.500}",
-          600: "{stone.600}",
-          700: "{stone.700}",
-          800: "{stone.800}",
-          900: "{stone.900}",
-          950: "{stone.950}",
+          0: "var(--color-surface)",
+          50: "var(--color-background)",
+          100: "var(--color-theme-light-surface-2)",
+          200: "var(--color-theme-light-surface-3)",
+          300: "var(--color-border)",
+          400: "var(--color-border-strong)",
+          500: "var(--color-theme-light-ink-subtle)",
+          600: "var(--color-theme-light-ink-muted)",
+          700: "var(--color-theme-light-ink-muted)",
+          800: "var(--color-text-primary)",
+          900: "var(--color-theme-light-ink)",
+          950: "var(--color-theme-light-ink)",
         },
       },
       dark: {
+        primary: {
+          color: "var(--color-brand-primary)",
+          contrastColor: "var(--color-text-on-brand)",
+          hoverColor: "var(--color-brand-primary-strong)",
+          activeColor: "var(--color-theme-dark-brand-soft)",
+        },
         surface: {
-          0: "#ffffff",
-          50: "{zinc.50}",
-          100: "{zinc.100}",
-          200: "{zinc.200}",
-          300: "{zinc.300}",
-          400: "{zinc.400}",
-          500: "{zinc.500}",
-          600: "{zinc.600}",
-          700: "{zinc.700}",
-          800: "{zinc.800}",
-          900: "{zinc.900}",
-          950: "{zinc.950}",
+          0: "var(--color-surface)",
+          50: "var(--color-theme-dark-surface-2)",
+          100: "var(--color-theme-dark-surface-3)",
+          200: "var(--color-border)",
+          300: "var(--color-border-strong)",
+          400: "var(--color-theme-dark-ink-subtle)",
+          500: "var(--color-theme-dark-ink-muted)",
+          600: "var(--color-theme-dark-ink-muted)",
+          700: "var(--color-theme-dark-surface)",
+          800: "var(--color-theme-dark-surface)",
+          900: "var(--color-text-primary)",
+          950: "var(--color-background)",
         },
       },
     },
   },
 });
 
-export default MonteFlorPreset;
+export default MonyMontyPreset;

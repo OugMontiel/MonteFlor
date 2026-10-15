@@ -1,107 +1,271 @@
-/* Importar iconos de Flaticon */
-@import "tailwindcss";
+/* ==========================================================================
+   MonyMonty - Variables Globales y Puente de Design Tokens
+   ========================================================================== */
 
 :root {
   /* Tipografía y legibilidad */
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:var(--font-family-sans);
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular, 400);
 
-  /* Colores del tema claro */
+  /* ==========================================================================
+     Mapeo Puente: Tokens del Design System (@ougmontiel/monymonty-tokens)
+     ========================================================================== */
 
   /* 🎨 Paleta base */
-  --color-acento: #f25c2f; /* Principal: botones, enlaces, énfasis */
-  --color-acento-suave: #ff9b73; /* Hover o elementos suaves */
-  --color-oscuro: #2f2f2f; /* Texto principal y navbar */
-  --color-claro: #f9f9f9; /* Fondo general */
-  --color-neutro: #cccccc; /* Bordes, desactivados, secundarios */
+  --color-acento: var(--color-theme-light-brand); /* #f25c2f - Naranja MonyMonty */
+  --color-acento-suave: var(--color-theme-light-brand-soft); /* #ff9b73 - Hover o elementos suaves */
+  --color-oscuro: var(--color-theme-light-ink); /* #2f2f2f - Texto principal y componentes oscuros */
+  --color-claro: var(--color-theme-light-bg); /* #f8f7f5 - Fondo general de la app */
+  --color-neutro: var(--color-theme-light-line); /* #e5e1db - Bordes y divisores neutros */
 
   /* 🖋️ Texto */
-  --texto-primario: #000000;
-  --texto-secundario: var(--color-oscuro);
-  --texto-claro: #ffffff;
+  --texto-primario: var(--color-theme-light-ink); /* #2f2f2f - Texto primario accesible */
+  --texto-secundario: var(--color-theme-light-ink-muted); /* #67625b - Texto secundario/etiquetas */
+  --texto-claro: var(--color-theme-light-on-brand); /* #ffffff - Texto blanco/on-brand */
 
   /* 🧱 Fondos */
-  --color-fondo: var(--color-claro);
-  --color-fondo-nav: var(--color-claro);
-  --color-fondo-hover: #e9e5e5;
+  --color-fondo: var(--color-theme-light-bg); /* #f8f7f5 - Fondo principal */
+  --color-fondo-nav: var(--color-theme-light-surface); /* #ffffff - Fondo de barra de navegación / tarjetas */
+  --color-fondo-hover: var(--color-theme-light-surface-2); /* #f2f0ec - Fondo al interactuar/hover */
 
   /* 🔲 Botones */
-  --color-fondo-boton-claro: var(--color-acento-suave);
-  --color-fondo-boton-claro-hover: var(--color-acento-suave);
-  --color-fondo-boton-oscuro: var(--color-oscuro);
-  --color-fondo-boton-oscuro-hover: #444;
+  --color-fondo-boton-claro: var(--color-theme-light-brand-soft);
+  --color-fondo-boton-claro-hover: var(--color-theme-light-brand-tint); /* #fff1eb */
+  --color-fondo-boton-oscuro: var(--color-theme-light-brand-strong); /* #c9441a */
+  --color-fondo-boton-oscuro-hover: var(--color-theme-light-brand); /* #f25c2f */
 
   /* 📏 Bordes y contenedores */
-  --borde-radio: 12px;
-  --borde-claro: var(--color-neutro);
-  --borde-oscuro: ;
+  --borde-radio: var(--radius-md); /* 12px */
+  --borde-claro: var(--color-theme-light-line); /* #e5e1db */
+  --borde-oscuro: var(--color-theme-light-line-strong); /* #8f887f */
 
   /* 🔤 Tipografía */
-  --fuente-principal: "Segoe UI", sans-serif;
-  --tamano-texto-base: 1rem;
-  --tamano-texto-titulo: 1rem;
-  --tamano-texto-boton: 1rem;
+  --fuente-principal: var(--font-family-sans, "Segoe UI");
+  --tamano-texto-base: var(--typography-text-body-font-size);
+  --tamano-texto-titulo: var(--typography-title-h3-font-size);
+  --tamano-texto-boton: var(--typography-text-label-font-size);
 
   /* 💡 Otros */
-  --color-letra-seleccion: #f04e23;
+  --color-letra-seleccion: var(--color-theme-light-brand-ink); /* #b23c15 - Enlaces y acentos activos */
+
+  /* 🌐 Aliases Semánticos Estándar (Design System) */
+  --color-brand-primary: var(--color-theme-light-brand);
+  --color-brand-primary-strong: var(--color-theme-light-brand-strong);
+  --color-brand-secondary: var(--color-theme-light-brand-soft);
+  --color-background: var(--color-theme-light-bg);
+  --color-surface: var(--color-theme-light-surface);
+  --color-surface-hover: var(--color-theme-light-surface-2);
+  --color-text-primary: var(--color-theme-light-ink);
+  --color-text-secondary: var(--color-theme-light-ink-muted);
+  --color-text-on-brand: var(--color-theme-light-on-brand);
+  --color-border: var(--color-theme-light-line);
+  --color-border-strong: var(--color-theme-light-line-strong);
+
+  /* ==========================================================================
+     ⚡ El Golpe de Estado: Forzar Variables Nativas de PrimeVue v4 (:root / Light)
+     ========================================================================== */
+  /* Colores Primarios y Estados */
+  --p-primary-color: var(--color-brand-primary);
+  --p-primary-contrast-color: var(--color-text-on-brand);
+  --p-primary-hover-color: var(--color-brand-primary-strong);
+  --p-primary-active-color: var(--color-theme-light-brand-ink);
+
+  /* Escala Semántica Primaria (MonyMonty Orange) */
+  --p-primary-50: var(--color-theme-light-brand-tint);
+  --p-primary-100: var(--color-theme-light-brand-tint);
+  --p-primary-200: var(--color-theme-light-brand-soft);
+  --p-primary-300: var(--color-theme-light-brand-soft);
+  --p-primary-400: var(--color-theme-light-brand);
+  --p-primary-500: var(--color-brand-primary);
+  --p-primary-600: var(--color-brand-primary-strong);
+  --p-primary-700: var(--color-theme-light-brand-strong);
+  --p-primary-800: var(--color-theme-light-brand-ink);
+  --p-primary-900: var(--color-theme-light-brand-ink);
+  --p-primary-950: var(--color-theme-dark-brand-tint);
+
+  /* Escala de Superficies (MonyMonty Light Surfaces) */
+  --p-surface-0: var(--color-surface);
+  --p-surface-50: var(--color-background);
+  --p-surface-100: var(--color-theme-light-surface-2);
+  --p-surface-200: var(--color-theme-light-surface-3);
+  --p-surface-300: var(--color-border);
+  --p-surface-400: var(--color-border-strong);
+  --p-surface-500: var(--color-theme-light-ink-subtle);
+  --p-surface-600: var(--color-theme-light-ink-muted);
+  --p-surface-700: var(--color-theme-light-ink-muted);
+  --p-surface-800: var(--color-text-primary);
+  --p-surface-900: var(--color-theme-light-ink);
+  --p-surface-950: #1c1814;
+
+  /* Contenidos y Componentes de PrimeVue */
+  --p-content-background: var(--color-surface);
+  --p-content-hover-background: var(--color-surface-hover);
+  --p-content-border-color: var(--color-border);
+  --p-content-color: var(--color-text-primary);
+  --p-navigation-item-active-background: var(--color-theme-light-brand-tint);
+  --p-navigation-item-active-color: var(--color-brand-primary);
+
+  /* Botones Primarios */
+  --p-button-primary-background: var(--color-brand-primary-strong);
+  --p-button-primary-hover-background: var(--color-brand-primary);
+  --p-button-primary-active-background: var(--color-theme-light-brand-ink);
+  --p-button-primary-border-color: var(--color-brand-primary-strong);
+  --p-button-primary-color: var(--color-text-on-brand);
+
+  /* Tarjetas (PrimeCard) */
+  --p-card-background: var(--color-surface);
+  --p-card-color: var(--color-text-primary);
+  --p-card-border-radius: var(--radius-lg);
+  --p-card-shadow: var(--shadow-sm-light);
+
+  /* Formularios y Focos */
+  --p-focus-ring-color: var(--color-brand-primary);
+  --p-focus-ring-width: var(--state-ring-width);
+  --p-border-radius-xs: var(--radius-sm);
+  --p-border-radius-sm: var(--radius-sm);
+  --p-border-radius-md: var(--radius-md);
+  --p-border-radius-lg: var(--radius-lg);
+  --p-border-radius-xl: var(--radius-xl);
 
   /* Propiedades de texto */
-  font-synthesis: none; /* Desactivar síntesis de fuentes */
-  text-rendering: optimizeLegibility; /* Mejora la legibilidad del texto */
-  -webkit-font-smoothing: antialiased; /* Suavizado de fuentes en WebKit */
-  -moz-osx-font-smoothing: grayscale; /* Suavizado de fuentes en macOS */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-[data-theme="dark"] {
-  /* Colores del tema oscuro */
-  --color-fondo: #242424; /* Color de fondo principal */
-  --texto-primario: #ffffff; /* Color de texto principal */
-  --color-fondo-nav: #333; /* Color de fondo de la barra de navegación */
-  --color-fondo-hover: #555; /* Color de fondo al pasar el mouse */
+[data-theme="dark"],
+.app-dark,
+:root.app-dark {
+  /* ==========================================================================
+     Mapeo Modo Oscuro: Tokens del Design System
+     ========================================================================== */
 
-  --color-dominante: #1c1c1c;
-  --color-secundario: #ffffff;
-  --color-acento: #f25c2f;
+  /* 🎨 Paleta base */
+  --color-acento: var(--color-theme-dark-brand); /* #ff6b3d */
+  --color-acento-suave: var(--color-theme-dark-brand-soft); /* #ffab8a */
+  --color-oscuro: var(--color-theme-dark-surface); /* #1b1a18 */
+  --color-claro: var(--color-theme-dark-bg); /* #121110 */
+  --color-neutro: var(--color-theme-dark-line); /* #33302c */
 
-  --color-fondo: #121212;
-  --color-fondo-nav: #1e1e1e;
-  --color-fondo-hover: #2a2a2a;
-  --color-fondo-boton-claro: #2f2f2f;
-  --color-fondo-boton-claro-hover: #3a3a3a;
-  --color-fondo-boton-oscuro: #ffffff;
-  --color-fondo-boton-oscuro-hover: #f2f2f2;
+  /* 🧱 Fondos */
+  --color-fondo: var(--color-theme-dark-bg); /* #121110 */
+  --color-fondo-nav: var(--color-theme-dark-surface); /* #1b1a18 */
+  --color-fondo-hover: var(--color-theme-dark-surface-2); /* #24221f */
 
-  --texto-primario: #ffffff;
-  --texto-secundario: #c0c0c0;
-  --texto-claro: #000000;
-  --color-letra-seleccion: #ffa07a;
+  --color-dominante: var(--color-theme-dark-surface); /* #1b1a18 */
+  --color-secundario: var(--color-theme-dark-ink); /* #f4f1ec */
 
-  --color-borde-claro: #555;
-  --color-borde-oscuro: #aaa;
+  /* 🔲 Botones */
+  --color-fondo-boton-claro: var(--color-theme-dark-surface-3); /* #2e2b28 */
+  --color-fondo-boton-claro-hover: var(--color-theme-dark-line); /* #33302c */
+  --color-fondo-boton-oscuro: var(--color-theme-dark-brand-strong); /* #ff7a4f */
+  --color-fondo-boton-oscuro-hover: var(--color-theme-dark-brand-soft); /* #ffab8a */
+
+  /* 🖋️ Texto */
+  --texto-primario: var(--color-theme-dark-ink); /* #f4f1ec */
+  --texto-secundario: var(--color-theme-dark-ink-muted); /* #b3ada5 */
+  --texto-claro: var(--color-theme-dark-on-brand); /* #1b0d06 */
+  --color-letra-seleccion: var(--color-theme-dark-brand-ink); /* #ffab8a */
+
+  /* 📏 Bordes */
+  --borde-claro: var(--color-theme-dark-line); /* #33302c */
+  --borde-oscuro: var(--color-theme-dark-line-strong); /* #6e675f */
+  --color-borde-claro: var(--color-theme-dark-line);
+  --color-borde-oscuro: var(--color-theme-dark-line-strong);
+
+  /* 🌐 Aliases Semánticos Estándar (Modo Oscuro) */
+  --color-brand-primary: var(--color-theme-dark-brand);
+  --color-brand-primary-strong: var(--color-theme-dark-brand-strong);
+  --color-brand-secondary: var(--color-theme-dark-brand-soft);
+  --color-background: var(--color-theme-dark-bg);
+  --color-surface: var(--color-theme-dark-surface);
+  --color-surface-hover: var(--color-theme-dark-surface-2);
+  --color-text-primary: var(--color-theme-dark-ink);
+  --color-text-secondary: var(--color-theme-dark-ink-muted);
+  --color-text-on-brand: var(--color-theme-dark-on-brand);
+  --color-border: var(--color-theme-dark-line);
+  --color-border-strong: var(--color-theme-dark-line-strong);
+
+  /* ==========================================================================
+     ⚡ El Golpe de Estado: Forzar Variables Nativas de PrimeVue v4 (Dark)
+     ========================================================================== */
+  /* Colores Primarios y Estados */
+  --p-primary-color: var(--color-brand-primary);
+  --p-primary-contrast-color: var(--color-text-on-brand);
+  --p-primary-hover-color: var(--color-brand-primary-strong);
+  --p-primary-active-color: var(--color-theme-dark-brand-soft);
+
+  /* Escala Semántica Primaria (MonyMonty Dark Brand) */
+  --p-primary-50: var(--color-theme-dark-brand-tint);
+  --p-primary-100: var(--color-theme-dark-brand-tint);
+  --p-primary-200: var(--color-theme-dark-brand-soft);
+  --p-primary-300: var(--color-theme-dark-brand-soft);
+  --p-primary-400: var(--color-theme-dark-brand);
+  --p-primary-500: var(--color-brand-primary);
+  --p-primary-600: var(--color-brand-primary-strong);
+  --p-primary-700: var(--color-theme-dark-brand-strong);
+  --p-primary-800: var(--color-theme-dark-brand-ink);
+  --p-primary-900: var(--color-theme-dark-brand-ink);
+  --p-primary-950: #120b08;
+
+  /* Escala de Superficies (MonyMonty Dark Surfaces) */
+  --p-surface-0: var(--color-surface);
+  --p-surface-50: var(--color-theme-dark-surface-2);
+  --p-surface-100: var(--color-theme-dark-surface-3);
+  --p-surface-200: var(--color-border);
+  --p-surface-300: var(--color-border-strong);
+  --p-surface-400: var(--color-theme-dark-ink-subtle);
+  --p-surface-500: var(--color-theme-dark-ink-muted);
+  --p-surface-600: var(--color-theme-dark-ink-muted);
+  --p-surface-700: var(--color-theme-dark-surface);
+  --p-surface-800: var(--color-theme-dark-surface);
+  --p-surface-900: var(--color-text-primary);
+  --p-surface-950: var(--color-background);
+
+  /* Contenidos y Componentes de PrimeVue */
+  --p-content-background: var(--color-surface);
+  --p-content-hover-background: var(--color-surface-hover);
+  --p-content-border-color: var(--color-border);
+  --p-content-color: var(--color-text-primary);
+  --p-navigation-item-active-background: var(--color-theme-dark-brand-tint);
+  --p-navigation-item-active-color: var(--color-brand-primary);
+
+  /* Botones Primarios */
+  --p-button-primary-background: var(--color-brand-primary-strong);
+  --p-button-primary-hover-background: var(--color-brand-secondary);
+  --p-button-primary-active-background: var(--color-theme-dark-brand-ink);
+  --p-button-primary-border-color: var(--color-brand-primary-strong);
+  --p-button-primary-color: var(--color-text-on-brand);
+
+  /* Tarjetas (PrimeCard) */
+  --p-card-background: var(--color-surface);
+  --p-card-color: var(--color-text-primary);
+  --p-card-shadow: var(--shadow-sm-dark);
+
+  /* Focos */
+  --p-focus-ring-color: var(--color-brand-primary);
 }
 
 /* Estilos globales */
 * {
-  /* padding: 0; /* Eliminar padding por defecto */
-  margin: 0; /* Eliminar margen por defecto */
-  border: 0; /* Eliminar borde por defecto */
-  box-sizing: border-box; /* Incluir padding y borde en el tamaño total */
+  box-sizing: border-box;
 }
 
 /* Estilos para imágenes */
 img {
-  width: 100%; /* Ancho completo */
-  height: auto; /* Mantener la proporción */
-  object-fit: contain; /* Ajustar la imagen sin recortarla */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Estilos para listas */
 li {
-  list-style: none; /* Eliminar viñetas de listas */
+  list-style: none;
 }
 
 /* Estilos para enlaces */
 a {
-  text-decoration: none; /* Eliminar subrayado de enlaces */
+  text-decoration: none;
 }

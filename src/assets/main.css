@@ -21,8 +21,8 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  color: var(--p-surface-800);
-  background-color: var(--p-surface-50);
+  color: var(--texto-primario);
+  background-color: var(--color-fondo);
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -30,6 +30,6 @@ body {
 }
 
 .app-dark body {
-  color: var(--p-surface-100);
-  background-color: var(--p-surface-950);
+  color: var(--texto-primario);
+  background-color: var(--color-fondo);
 }
